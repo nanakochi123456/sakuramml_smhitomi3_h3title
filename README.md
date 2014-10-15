@@ -1,7 +1,7 @@
 sakuramml_smhitomi3_h3title
 =========================
 
-SM調教師瞳3 h3_5 オープニングメドレー
+SM調教師瞳3 h3_title オープニングメドレー
 
 http://www.nicovideo.jp/watch/sm24480411
 http://oto.chu.jp/mmlbbs6/post.php?mml_id=1520
