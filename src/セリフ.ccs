@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scenario Code="7251BC4B6168E7B2992FA620BD3E1E77">
+  <Sequence Id="">
+    <Scene Id="">
+      <Units>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:16.4000000" Duration="00:00:00.3300000" Text="いや" CastId="A">
+          <Direction Volume="5.1199999999999992" Speed="0.93765095400201548" Tone="-5.76" Alpha="0.582">
+            <Component Name="fine" Value="1.00" />
+            <Component Name="angry" Value="0.52" />
+            <Component Name="sad" Value="0.40" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="y" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:17.3700000" Duration="00:00:02.8650000" Text="それら全ては、裏組織の仕業" CastId="A">
+          <Direction Volume="6.08" Speed="1" Tone="-6" Alpha="0.584">
+            <Component Name="fine" Value="0.49" />
+            <Component Name="angry" Value="0.61" />
+            <Component Name="sad" Value="0.77" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="s" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="s" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="b" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="t" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="w" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="s" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="sh" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="I" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="sh" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="w" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="z" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:23.3200000" Duration="00:00:04.4850000" Text="僕は、普通の会社に勤める、普通のサラリーマンだった。" CastId="A">
+          <Direction Volume="6.24" Speed="1" Tone="-6" Alpha="0.6">
+            <Component Name="fine" Value="0.45" />
+            <Component Name="angry" Value="0.51" />
+            <Component Name="sad" Value="0.35" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="b" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="w" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="f" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="U" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="ts" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="sh" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="ts" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="U" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="t" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="m" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="f" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="U" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="ts" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="s" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="m" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="N" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="d" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="cl" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="t" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:20.7850000" Duration="00:00:02.4750000" Text="その氷山の一角に過ぎないのだ" CastId="A">
+          <Direction Volume="4.9600000000000009" Speed="1" Tone="-6" Alpha="0.6">
+            <Component Name="fine" Value="0.53" />
+            <Component Name="angry" Value="0.54" />
+            <Component Name="sad" Value="0.59" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="s" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="hy" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="z" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="N" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="cl" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="s" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="g" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="d" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:02.0950000" Duration="00:00:01.7950000" Text="誰も知らない世界がある" CastId="A">
+          <Direction Volume="5.1199999999999992" Speed="1" Tone="-6" Alpha="0.589">
+            <Component Name="fine" Value="0.13" />
+            <Component Name="angry" Value="0.36" />
+            <Component Name="sad" Value="0.46" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="d" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="m" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="sh" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="s" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="g" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:00" Duration="00:00:01.0350000" Text="西武企画" CastId="A">
+          <Direction Volume="5.1199999999999992" Speed="1" Tone="0.12000000000000011" Alpha="0.589">
+            <Component Name="fine" Value="0.91" />
+            <Component Name="angry" Value="0.08" />
+            <Component Name="sad" Value="0.05" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="s" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="b" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:11.2750000" Duration="00:00:04.7550000" Text="あれらは、本当に、ゆくえふめいであり、自殺なのか" CastId="A">
+          <Direction Volume="4.8000000000000007" Speed="1" Tone="-6" Alpha="0.583">
+            <Component Name="fine" Value="0.06" />
+            <Component Name="angry" Value="0.55" />
+            <Component Name="sad" Value="0.77" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="w" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="h" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="N" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="t" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="y" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="f" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="m" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="d" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="j" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="s" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="ts" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:09.1850000" Duration="00:00:01.5900000" Text="そして、自殺" CastId="A">
+          <Direction Volume="6.24" Speed="1" Tone="-6" Alpha="0.585">
+            <Component Name="fine" Value="0.15" />
+            <Component Name="angry" Value="0.39" />
+            <Component Name="sad" Value="0.72" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="s" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="sh" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="I" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="t" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="j" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="s" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="ts" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:04.3300000" Duration="00:00:04.2350000" Text="時折、新聞をにぎわせる、少女のゆくえふめい" CastId="A">
+          <Direction Volume="5.1199999999999992" Speed="1" Tone="-6" Alpha="0.588">
+            <Component Name="fine" Value="0.13" />
+            <Component Name="angry" Value="0.36" />
+            <Component Name="sad" Value="0.48" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="t" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="sh" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="N" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="b" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="N" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="g" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="w" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="s" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="sh" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="j" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="y" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="f" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="m" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.0" Id="" Category="SingerSong" Group="2fed64f6-f945-48e7-b568-ec8a70145089" StartTime="00:00:00" Duration="00:00:02">
+          <Song Version="1.02">
+            <Tempo>
+              <Sound Clock="0" Tempo="120" />
+            </Tempo>
+            <Beat>
+              <Time Clock="0" Beats="4" BeatType="4" />
+            </Beat>
+            <Score>
+              <Key Clock="0" Fifths="0" Mode="0" />
+            </Score>
+          </Song>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:40.7950000" Duration="00:00:02.3200000" Text="お前には見所がある。今から組織に来い！" CastId="A">
+          <Direction Volume="6.24" Speed="1.3797296614612149" Tone="-6" Alpha="0.55499999999999994">
+            <Component Name="fine" Value="0.38" />
+            <Component Name="angry" Value="0.80" />
+            <Component Name="sad" Value="0.00" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="m" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="w" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="m" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="d" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="g" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="m" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="s" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="sh" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="I" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:44.4970000" Duration="00:00:00.6000000" Text="なんのことだ？" CastId="A">
+          <Direction Volume="6.24" Speed="1.5196102039986283" Tone="-6" Alpha="0.6">
+            <Component Name="fine" Value="0.65" />
+            <Component Name="angry" Value="0.98" />
+            <Component Name="sad" Value="0.53" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="N" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="t" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="d" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:28.3800000" Duration="00:00:08.4000000" Text="退屈な毎日の中、月に1度、給料がでた日に、SMクラブへ行く事だけが、楽しみだった。" CastId="A">
+          <Direction Volume="6.24" Speed="1" Tone="-6" Alpha="0.6">
+            <Component Name="fine" Value="0.45" />
+            <Component Name="angry" Value="0.51" />
+            <Component Name="sad" Value="0.35" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="t" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="U" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="ts" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="m" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="ch" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="ts" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="U" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="ch" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="d" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="ky" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="ry" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="g" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="d" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="t" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="h" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="s" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="m" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="b" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="U" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="t" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="d" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="g" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="t" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="sh" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="m" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="d" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="cl" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="t" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:39.2380000" Duration="00:00:00.7150000" Text="なんだお前は" CastId="A">
+          <Direction Volume="6.24" Speed="1.293704833333986" Tone="-5.52" Alpha="0.593">
+            <Component Name="fine" Value="0.60" />
+            <Component Name="angry" Value="0.95" />
+            <Component Name="sad" Value="0.08" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="n" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="N" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="d" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="m" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="e" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="w" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:37.5800000" Duration="00:00:01.1700000" Text="ふ、ふ、ふ" CastId="A">
+          <Direction Volume="6.4" Speed="1.2130435711726304" Tone="-6" Alpha="0.54">
+            <Component Name="fine" Value="0.80" />
+            <Component Name="angry" Value="1.00" />
+            <Component Name="sad" Value="0.70" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="f" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="f" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="f" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="u" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="392dad33-d9bb-4999-acc1-27d54fc19c14" StartTime="00:00:46.2000000" Duration="00:00:00.9200000" Text="いいから来い！" CastId="A">
+          <Direction Volume="6.24" Speed="0.90794972146848008" Tone="-6" Alpha="0.55899999999999994">
+            <Component Name="fine" Value="0.56" />
+            <Component Name="angry" Value="0.85" />
+            <Component Name="sad" Value="0.56" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="r" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="a" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="k" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="o" Volume="0" Speed="0" Tone="0" />
+            <Phoneme Data="i" Volume="0" Speed="0" Tone="0" />
+          </Phonemes>
+        </Unit>
+      </Units>
+      <Groups>
+        <Group Version="1.0" Id="392dad33-d9bb-4999-acc1-27d54fc19c14" Category="TextVocal" Name="トーク 1" Color="#FF1E90FF" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="A" />
+        <Group Version="1.0" Id="2fed64f6-f945-48e7-b568-ec8a70145089" Category="SingerSong" Name="ソング 1" Color="#FFFF0000" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="A" />
+      </Groups>
+      <SoundSetting Rhythm="4/4" Tempo="78" />
+    </Scene>
+  </Sequence>
+</Scenario>

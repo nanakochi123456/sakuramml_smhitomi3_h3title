@@ -1,0 +1,1678 @@
+// SM Chokyoushi Hitomi3 with VOCALOID3(Hatsune Miku) + CeVIO Creative Studio FREE
+
+// Start 2014/09/08 18:55
+// Song Complete 2014/09/10 19:58
+// Vocaloid PreComplete 2014/09/11 07:35
+// Niconico Upload 2014/09/15 23:30
+//
+///////////////////////////////////////////////////////////////////////////
+// Settings
+///////////////////////////////////////////////////////////////////////////
+
+Int VOCALOID=1 // BACK=0だと69小説目から開始する
+Int BACK=1
+
+Int SING=0 // 0 のまま
+Int TIMIDITY=1
+Int THEMEONLY=0
+
+///////////////////////////////////////////////////////////////////////////
+// Memo
+//
+// TR1=ボカロ（初音ミク）
+// TR2=CeVIO （さとうささら）調教不要
+// TR16=テンポ
+// それ以外、TiMidiTy
+//
+// オリジナルとの相違点
+// 女の子がおっさんに化ける時の曲が、若干長めになっている。
+///////////////////////////////////////////////////////////////////////////
+// 今回添付ファイルは、単なるbase64になってます。すみません。
+///////////////////////////////////////////////////////////////////////////
+IF(0){
+↓この歌詞は未使用
+
+あの世界
+偶に賑わす
+少女の行方不明
+そして自殺
+いや行方不明
+いや自殺なのか
+いや、それは裏組織の
+仕業に過ぎない
+その氷山の一角に過ぎない
+私たちはどうなの
+
+退屈な毎日の中
+月に一度ＳＭクラブへ
+行くことが楽しみだった
+痛みつけて
+快感になる
+俺の心には
+満たされてく
+温かみに
+満ちてゆく
+}
+
+///////////////////////////////////////////////////////////////////////////
+// 歌詞
+///////////////////////////////////////////////////////////////////////////
+IF(0) {
+眩しい太陽　見上げみる
+空はすんでいるよ
+あの日の夜空を　見上げてみる
+お星さまが綺麗だ
+共に見上げてみようよ
+
+青い空の元で
+二人で誓った心に
+いつかはきっとと届く
+この気持ち届くかな？
+
+好きよ　あなたのこと
+大好きだ　心に止めて
+私のこころは
+あなただけのもの
+
+あたし　抱きしめてね
+胸の中で　輝く愛を
+
+受け止めてください
+私のこころを
+
+好きだ　あなたのこと
+ずっと一緒に　二人で歩む
+あなたも微笑んで
+あたしを見つめて
+
+好きだ　私も
+あなたのこと　大好きだから
+二人で誓った愛
+いつまでも続く
+}
+///////////////////////////////////////////////////////////////////////////
+// Define
+///////////////////////////////////////////////////////////////////////////
+
+曲名={"SM調教師瞳3 オープニングメドレー  with VOCALOID3(Hatsune Miku) + CeVIO Creative Studio FREE"}
+作者={"ゆった@NEET株式会社 00264 なの @nanakochi123456 有限会社EJ"}
+
+ResetGS
+Reverb(127)
+
+#PEDALON={Sub {r16y64,127}}
+#PEDALOFF={r-32 y64,0 r32}
+
+IF(BACK=0) {
+	PlayFrom(69:1:0)
+}
+
+///////////////////////////////////////////////////////////////////////////
+// Seibu Kikaku Logo
+///////////////////////////////////////////////////////////////////////////
+
+IF(BACK=1) {
+	TR(5)
+		Time(1:1:0)
+		o5q90
+		Voice(BrightPiano)
+		l8
+		v110
+		#PEDALON e4 c e #PEDALOFF #PEDALON g4 e4 #PEDALOFF
+		#PEDALON c4  Sub{l28cdefgab}r4> Sub {r8 #PEDALOFF #PEDALON } c2 #PEDALOFF
+
+	TR(6)
+		Time(1:1:0)
+		Voice(GrandPiano)
+		v90q90
+		#PEDALON 'c2e2g2' #PEDALOFF #PEDALON '<g2b2>d2' #PEDALOFF
+		#PEDALON 'c1e2g2' #PEDALOFF
+
+///////////////////////////////////////////////////////////////////////////
+// OP1
+///////////////////////////////////////////////////////////////////////////
+
+	TR(5)
+		Time(3:3:0)
+		v100
+		o4l8
+		IF(SING=1) {
+			Voice(ChoirPad)
+			q90
+			// あの
+			g4a4
+			// せかい たま
+			b4ee&erga
+			// にぎわす しょ
+			bb>f#f#&f#ref#
+			// じょのゆくふ
+			a&gf#g&g<b&b>e
+			// めい そし
+			d8d4r<b4>d4
+			// てじさつ いや
+			dc<b>c&c4r<a16b16>
+			// ゆくえふめい いや
+			c<b16b16a#b&b4rb16>c16
+			// じさつなの
+			dc<b>c&c<be&g
+			// か いや
+			f#2 g4a4
+
+			// それらは うら
+			bbee&erga
+			// そしきの しわ
+			bb>f#f#&f#ref#
+			// ざにすぎな
+			agf#g&g<b&b>e
+			// い その
+			d4.r<b4>d4
+			// ひょうざんの いっかく
+			dc<b16b16>c&cr<a16r16b16b16>
+			// にすぎない わた
+			c<ba#bb4rb16>c16
+			// したちはどな
+			dc<b>c&cg4g
+			//の
+			f#4.r
+
+			// たい
+			e4f#4
+			// くつ な
+			a4.g&g4re16&f#16
+			// まいにち のなか
+			a8a4ggrgf#16g16
+			// つきにいち
+			b4>c<a& ac4e
+			// ど えす
+			d2r rd8d8
+			// えむくら　ぶ え
+			dc<b>c g4rc
+			// いくことが　たの
+			c<ba#b>g rf#g
+			// しみ だた
+			a4g4 f#&erf#&
+			//    いた
+			f#4.r e4f#4
+
+			// みつけて　かい
+			agf#g&g4re16f#16
+			// かんになる おれ
+			a16a16gf#g&g4rf#16g16
+			// のこころに
+			b4>c<a& ac4e
+			// は み
+			d4.rrd4
+			// たされて く あ
+			dc<b>c g4rc
+			// たたかみ に
+			c<bge &e4.r
+			// みちてゆく
+			f#4a4 gf#4e&
+			e2r2
+		} ELSE {
+			Voice(Viola)
+			q98
+			o4
+			g4a4
+			b4ee&erga
+			b4>f#f#&f#ref#
+			agf#g&g<b&b>e
+			d4.r<b4>d4
+			dc<b>c&c4r<a16b16>
+			c<ba#b&b4rb16>c16
+			dc<b>c&c<beg
+			f#4.r g4a4
+
+			b4ee&erga
+			b4>f#f#&f#ref#
+			agf#g&g<b&b>e
+			d4.r<b4>d4
+			dc<b>c&c4r<a16b16>
+			c<ba#b&b4rb16>c16
+			dc<b>c&cg4f#&
+			f#4.r
+
+			#v1={
+				e4f#4
+				a4.g&g4re16f#16
+				a4.g&g4rf#16g16
+				b4>c<a& ac4e
+				d2r4d4
+				d4cg& g4rc
+				c4<b>gr ef#g
+				a4g4 f#e4f#&
+				f#4.r e4f#4
+
+				a4.g&g4re16f#16
+				a4.g&g4rf#16g16
+				b4>c<a& ac4e
+				d2r4d4
+				dc<b>c g4.c
+				c<bge &e4.r
+				f#4a4 gf#4e&
+				e2r2
+			}
+			o5
+			#v1
+
+			TR(6)
+				Time(3:3:0)
+				v100
+				o4l8
+				q98
+				Voice(Violin)
+				[16 r1]
+				o7
+				#v1
+		}
+
+
+	TR(7)
+		Time(3:3:0)
+		r2
+		Voice(TremoloStrings)
+		v80
+		l1q100
+		[8 r1]
+		o4
+		'g>e<'
+		'f#>d#<'
+		Sub{g^}>ed<
+		Sub{>e^^<}aga
+		'b>f#<'
+
+		Sub{g1^1^1^1}>ed#ed<
+		'a>e<''g>e<''a#>e<''b>f#<'
+
+		Voice(FrenchHorn)
+		v65q98
+		o4
+		l1
+		Sub{g1^1^1^1}>ed#ed<
+		'a>e<''g>e<''a2>e2<''f#2>d#2<' 'g2>e2'
+
+	TR(8)
+		Time(3:3:0)
+		Voice(PizzicatoStrings)
+		o5r2l16
+		v50
+		#egb={rreg brgr >er<br grbr}
+		#dfb={rrd#f# brf#r >d#r<br f#rbr}
+		#ceg={rrce grer >cr<gr ergr}
+		#dgb={rrdg brgr >dr<br grbr}
+		#eac={rrea >cr<ar >ercr <ar>cr<}
+
+		Sub {
+			o4
+			[2
+				#egb #dfb #ceg #dgb
+				#eac #egb #ceg #dfb
+			]
+		}
+		o5
+		[2
+			#egb #dfb #ceg #dgb
+			#eac #egb #ceg #dfb
+		]
+
+	TR(9)
+		Time(3:3:0)
+		Voice(Cello)
+		v80q95
+		o4r2l8
+		[16 r1]
+		e4gb &b>egr<
+		d#4gb &b>d#gr<
+		c4eg &g>cer<
+		<b4>dg &gb>dr<
+		c4ea &a>cer<
+		<b4>eg &gb>er<
+		c#4eg &g>c#er<
+		d#4f#b &b>d#f#r<
+
+		e4gb &b>egr<
+		d#4gb &b>d#gr<
+		c4eg &g>cer<
+		<b4>dg &gb>dr<
+		c4ea &a>cer<
+		<b4>eg &gb>er<
+		<a4>c4 <b>d#f#b
+		egb>e<
+
+	TR(11)
+		Time(3:3:0)
+		Voice(Contrabass)
+		v90q96
+		r2
+		o3
+		[2
+			e1
+			d#1
+			c1
+			g1
+			a1
+			g1
+			a1
+			b1
+		]
+		e1
+		d#1
+		c1
+		<b1>
+		c1
+		<b1>
+		<a#1>
+		<b1>
+		e1
+		d#1
+		c1
+		<b1>
+		c1
+		<b1>
+		<a2b2>
+		e2
+
+///////////////////////////////////////////////////////////////////////////
+// OP2
+///////////////////////////////////////////////////////////////////////////
+	TR(5)
+		Time(36:1:0)
+		o6
+		v127
+		Voice(BrassSection)
+		g#4.g#8
+		>c#1^1
+
+	TR(6)
+		Time(36:1:0)
+		Voice(Harpsichord)
+		#hh6={
+			v120
+			g#4.g#8
+			Expression.onTime(127,100,!1)[40 c#24d24]
+			Expression(127)
+		}
+		Sub {
+			o4
+			#hh6
+		}
+		o7
+		#hh6
+
+
+	#orhit0={
+		v110q90
+		r2
+		l12
+		o3
+		'e-b->e-b->e-<<' rr
+		[3'e-b->e-b->e-<<'] 
+		[2 'f>cf>cf<<'rr]
+		'g>dg>dg'
+	}
+	TR(7)
+		Time(36:1:0)
+		Voice(OrchestraHit)
+		#orhit0
+
+	IF(TIMIDITY=1) {
+		TR(13)
+			Time(36:1:0)
+			Voice(SynthBrass1)
+			#orhit0
+	}
+
+	TR(11)
+		Time(36:1:0)
+		Voice(126,2,0)
+		o5
+		v127r4r4
+		r1r2
+		c2
+		Voice(126,3,0)
+		c2r8
+		Voice(126,4,0)
+		c4
+	TR(12)
+		Time(36:1:0)
+		o5
+		v110
+		Voice(126,0,0)
+		c1^1^1^2
+
+///////////////////////////////////////////////////////////////////////////
+// OP3
+///////////////////////////////////////////////////////////////////////////
+
+	TR(3)
+		Time(40:1:0)
+		Voice(Oboe)
+		v120
+		o5l8
+		g2>drdr
+		e-4.dc#rdr
+		<b->cdc<b-rgr
+		r4g#g# g#rrr
+		g2>drdr
+		e-4.dc#rdr
+		<b->cdc<b-rar
+		r4gg grrr
+
+		a2drar
+		b-2grrr>
+		e-4.dcre-r
+		d2.r4
+		c2<ar>cr<
+		b-2grrr
+		a4.db-rar
+		g4r2.
+		r1
+
+	TR(4)
+		Time(40:1:0)
+		Voice(Oboe)
+		v120
+		o5l8
+		[3 r1]
+		r4f#f#f#rrr
+
+	TR(7)
+		Time(40:1:0)
+		Voice(Strings1)
+		o5
+		l8
+		v70
+		[3 r 'c#2.d2.' r ]
+		rr[3 'c#d'] r <dr>
+
+		[3 r 'c#2.d2.' r ]
+		rr[3 'c#d'] r <dr>
+
+		[2 r 'c#2.d2.' r ]
+		[1 r 'd2.e-2.' r ]
+		[1 r 'c#2.d2.' r ]
+		[1 r 'd2.e-2.' r ]
+		[2 r 'c#2.d2.' r ]
+		'f#g'rrr <grrr
+
+	#orhit1={
+		o3
+		v127
+		[15 r1]
+		r2 'g2>g2'
+
+		Voice(127,5,0)
+		Expression.onTime(100,50,!1)[7 c8c8r4 ]
+		Expression(127)
+	}
+
+	TR(8)
+		Time(40:1:0)
+		Voice(OrchestraHit)
+		v127
+		#orhit1
+
+	IF(TIMIDITY=1) {
+		TR(13)
+			Time(40:1:0)
+			Voice(SynthBrass1)
+			v127
+			#orhit1
+	}
+
+	TR(9)
+		Time(40:1:0)
+		Voice(Timpani)
+		v115
+		o3
+		l8
+		[3 g4.>d4.<d4]
+		rrdd d2
+		[2 g4.>d4.<d4]
+		a4.>d4.<d4
+		rrgg g2
+		[1 a4.>d4.<d4]
+		[1 g4.>d4.<d4]
+		[1 g4.>e-4.<d4]
+		[1 g4.>d4.<d4]
+		[1 a4.>e-4.<d4]
+		[1 g4.>d4.<d4]
+		[1 a4.>d4.<d4]
+		g1
+
+
+	TR(10)
+		Time(40:1:0)
+		IF(TIMIDITY=0) {
+			Voice(OrchestraSet)
+			$c{n(59),}
+			$y{n(59),}
+		} ELSE {
+			Voice(StandardSet2)
+			$c{n(CrashCymbal1),}
+			$y{n(CrashCymbal2),}
+		}
+		$C{n(Castanets),}
+		$S{n(VibraSlap),}
+		[2
+			Sub {
+				Rythm {
+					[3 r8S8r2.]
+				}
+			}
+			Rythm {
+				C4.C4.C4
+				r4C4C2
+				C4.C4.C4
+			}
+			Rythm {
+				r2.c4
+			}
+		]
+
+		Sub {
+			Rythm {
+				[7 r8S8r2.]
+			}
+		}
+		Rythm {
+			[3
+				C4.C4.C4
+				r4C4C2
+			]
+			C4.C4.C4
+		}
+		Rythm {
+			C2c4
+		}
+}
+///////////////////////////////////////////////////////////////////////////
+// Theme Song
+///////////////////////////////////////////////////////////////////////////
+
+IF(VOCALOID=1) {
+	TR(1)
+		Time(60:1:0)
+		[9 r1]
+		Voice(AltoSax)
+		o5q97
+		l8v127
+		r2c#dee&
+		IF(BACK=1) {
+			e4.r c#dee&
+		} ELSE {
+			e4.r c#dee16.r32
+		}
+		e4f#d2r
+		c#4d<b2r
+		r2a4b4>
+		c#4<b4>c#4d4
+		c#4d<b&b2&
+		b2.r4>
+
+		r2c#dee&
+		IF(BACK=1) {
+			e4.r c#dee&
+		} ELSE {
+			e4.r c#dee
+		}
+		e4f#d2r
+		c#4d<b2r
+		r4a4>c#4f#4
+		a4b4>c#4d4
+		c#4d<b&b2&
+		b2r>c#<ba&
+		a4.rrf#g#a
+		>d4dc#4<aba&
+		a1&
+		a4r4
+
+		//---
+		rag#f#&
+		IF(BACK=1) {
+			f#2r4g#4
+		} ELSE {
+			f#2^8rg#4
+		}
+		a4a4g#f#4e&
+		e1
+
+		r2rc#de
+		IF(BACK=1) {
+			d2&dc#da&
+			a4a4<ab4>c#&
+		} ELSE {
+			d2^8c#da&
+			ara4<ab4>c#&
+		}
+		c#2d2
+		e2 rag#f#&
+		f#2r4g#4
+		IF(BACK=1) {
+			a4a4g#f#4e&
+		} ELSE {
+			ara4g#f#4e&
+		}
+		e1
+		r2rab>c#<
+		b2r4b4
+		a4a4g#a4b&
+		b1
+
+		#m2_1={
+			r2 r>c#de
+			r1
+			f#4ed4c#de
+			r1
+			IF(BACK=1) {
+				f#4ed4c#de
+			} ELSE {
+				f#4ed&dc#de
+			}
+			r1
+			f#4g4f#4c#4
+			IF(BACK=1) {
+				e4.d&d2&
+			} ELSE {
+				e4ed&d2&
+			}
+			d2 <rb>c#d&
+			d2r4d4
+			f4f4ed4c#&
+			c#1
+			r2.c#4<
+			b4r2b4
+			a4a4g#a4b&
+			b1
+
+			r2 r>c#de
+			r1
+			f#4ed4c#de
+			r1
+			f#4ed4c#de
+			r1
+			f#4g4f#4c#4
+			IF(BACK=1) {
+				e4.d&d2&
+			} ELSE {
+				e4ed&d2&
+			}
+			d2 <rb>c#d&
+			d2.d4
+			f4f4ed4c#&
+			c#1
+			r2.c#4<
+			IF(BACK=1) {
+				b4r2>c#4
+			} ELSE {
+				b2.>c#4
+			}
+			d4d4c#<b4a&
+			a1
+			r1
+		}
+		#n2_1={
+			r2 r>ab>c#
+			r1
+			d4c#<b4ab>c#
+			r1
+			IF(BACK=1) {
+				d4c#<b4ag#g
+			} ELSE {
+				d4c#<b&bag#g
+			}
+			r1
+			f#4f#4g#4a#4
+			IF(BACK=1) {
+				b4.b&b2&
+			} ELSE {
+				b4bb&b2&
+			}
+			b2 rdef&
+			f2r4f4
+			a4a4gf4e&
+			e1
+			r2.e4
+			d#4r2d#4
+			<b4b4>c#d#4e&
+			e1<
+
+			r2 r>c#de
+			r1
+			f#4ed4c#de
+			r1
+			f#4ed4c#de
+			r1
+			f#4g4f#4c#4
+			IF(BACK=1) {
+				e4.d&d2&
+			} ELSE {
+				e4ed&d2&
+			}
+			d2 <rb>c#d&
+			d2.d4
+			f4f4ed4c#&
+			c#1
+			r2.c#4<
+			IF(BACK=1) {
+				b4r2>c#4
+			} ELSE {
+				b2.>c#4
+			}
+			d4d4c#<b4a&
+			a1
+			r1
+		}
+		#m2_2={
+			r2 r>c#de
+			r1
+			f#4ed4c#de
+			r1
+			IF(BACK=1) {
+				f#4ed4c#de
+			} ELSE {
+				f#red4c#de
+			}
+			r1
+			f#4g4f#4c#4
+			IF(BACK=1) {
+				e4.d&d2&
+			} ELSE {
+				e4ed&d2&
+			}
+			d2 <rb>c#d&
+			d2r4d4
+			f4f4ed4c#&
+			c#1
+			r2.c#4<
+			b4r2b4
+			a4a4g#a4b&
+			b1
+
+			r2 r>c#de
+			r1
+			f#4ed4c#de
+			r1
+			f#4ed4c#de
+			r1
+			f#4g4f#4c#4
+			IF(BACK=1) {
+				e4.d&d2&
+			} ELSE {
+				e4ed&d2&
+			}
+			d2 <rb>c#d&
+			d2.d4
+			IF(BACK=1) {
+				f4f4ed4c#&
+			} ELSE {
+				f4fred4c#&
+			}
+			c#1
+			r2.c#4<
+			b4r2>c#4
+			d4d4c#<b4a&
+			a1
+			r1
+		}
+		#n2_2={
+			r2 r>ab>c#
+			r1
+			d4c#<b4ab>c#
+			r1
+			IF(BACK=1) {
+				d4c#<b4ag#g
+			} ELSE {
+				drc#<b4ag#g
+			}	
+			r1
+			f#4f#4g#4a#4
+			IF(BACK=1) {
+				b4.b&b2&
+			} ELSE {
+				b4bb&b2&
+			}
+			b2 rdef&
+			f2r4f4
+			a4a4gf4e&
+			e1
+			r2.e4
+			d#4r2d#4<
+			b4b4>c#d#4e&
+			e1
+
+			r2 rc#de
+			r1
+			f#4ed4c#de
+			r1
+			f#4ed4c#de
+			r1
+			f#4g4f#4c#4
+			IF(BACK=1) {
+				e4.d&d2&
+			} ELSE {
+				e4ed&d2&
+			}
+			d2 <rb>c#d&
+			d2.d4
+			IF(BACK=1) {
+				f4f4ed4c#&
+			} ELSE {
+				f4fred4c#&
+			}
+			c#1
+			r2.c#4<
+			b4r2>c#4
+			d4d4c#<b4a&
+			a1
+			r1
+		}
+
+		#m2_1
+		[15 r1]
+		o5
+		#m2_2
+	TR(2)
+		Time(60:1:0)
+		[9 r1]
+		Voice(AltoSax)
+		o5q97
+		l8v127
+		[19 r1]
+		r2
+		rf#ed&
+		IF(BACK=1) {
+			d2r4e4
+		} ELSE {
+			d2^8re4
+		}
+		f#4f#4ed4c#&
+		c#1
+		r2r<ab>c#
+		<b1>
+		e4e4<f#g#4a&
+		a2b2>
+		c#2 rf#ed&
+		d2r4e4
+		IF(BACK=1) {
+			f#4f#4ed4c#&
+		} ELSE {
+			f#rf#4ed4c#&
+		}
+		c#1
+		r2raag#
+		f#2r4f#4
+		d#4d#4<b>c#d#e&
+		e1
+
+		o4
+		#n2_1
+		[15 r1]
+		o4
+		#n2_2
+}
+IF(BACK=1) {
+	TR(5)
+		Time(60:1:0)
+		l16
+		Voice(BrassSection)
+		v127
+		Expression(127)
+		o5q95
+		#br1={
+			l16
+			dc#<b>c# def#g# ag#f#g# ab>c#d
+			l8
+			e2.r4
+			f#erdrc#de&
+			e2.r4
+			f#erdrc#de
+			d2 &dc#da&
+			a2 &a<ab>c#
+			d4r4e4r4
+			f4r4g4r8a8
+		}
+		Sub {
+			o4
+			#br1
+		}
+		o5
+		#br1
+
+	TR(6)
+		Time(60:1:0)
+		v100
+		Expression(127)
+		r1l1
+		o4q100
+		Voice(Strings1)
+		'a^>c#^e^<'
+		'g#^>c#^e^<'
+		'f#^a>^d^<'
+		l4
+		'fa>d<' r 'gb>e<'r
+		'a>cf<' r 'b>dg<' r8 '>c#8e8a8'<
+
+		//---
+		l1
+		[2
+			'a>c#e<'
+			'g#>c#e<'
+			'a>df#<'
+			'g#>c#e#<'
+			'a>c#f#<'
+			'a>d#f#<'
+			'g#^b^>e^<'
+		]
+		[2 'f#8a8>d8<'] r2.
+		'g#b>e<'
+		Sub {'a^>c#^'}
+		ef#2g2<
+
+		//--
+		'a^>d^f#^<'
+		'a^>c#^e^<'
+		'a>df#<'
+		'g#b>e<'
+		'a>c#e<'
+		'a>c#g<'
+
+		'a^>d^f#^<'
+		'a>c#e<'
+		'a>c#f#<'
+		'b^>d#^f#^<'
+		'g#^b^>e^<'
+
+		//--
+		'a^>c#^e^<'
+		'g#^b^>e^<'
+		'gb>e<'
+		'a#>c#f#<'
+		'b^>d^f#^<'
+		'b>df<'
+		'g#>de<'
+		'a^>c#^e^<'
+		'b^>d#^f#^<'
+		'g#^b^>e^<'
+
+		'a^>c#^e^<'
+		'g#^b^>e^<'
+		'gb>e<'
+		'a#>c#f#<'
+		'b^>d^f#^<'
+		'b>df<'
+		'g#>de<'
+		'a^>c#^e^<'
+		'b>df#<'
+		'g#>de<'
+		Sub{'a^>c#^'}ef#2g2<
+
+		//---
+		'a^>d^f#^<'
+		'a^>c#^e^<'
+		'a>df#<'
+		'g#>de<'
+		'a>c#e<'
+		'a>c#g<'
+
+		'a^>d^f#^<'
+		'g#>c#e#<'
+		'a>c#f#<'
+		'b^>d#^f#^<'
+		'g#^b^>e^<'
+
+		//--
+		'a^>c#^e^<'
+		'g#^b^>e^<'
+		'gb>e<'
+		'a#>c#f#<'
+		'b^>d^f#^<'
+		'b>df<'
+		'g#>de<'
+		'a^>c#^e^<'
+		'b^>d#^f#^<'
+		'g#^b^>e^<'
+
+		'a^>c#^e^<'
+		'g#^b^>e^<'
+		'gb>e<'
+		'a#>c#f#<'
+		'b^>d^f#^<'
+		'b>df<'
+		'g#>de<'
+		'a^>c#^e^<'
+		'b>df#<'
+		'g#>de<'
+		'a1.>c#1.e1.'
+
+	TR(7)
+		Time(60:1:0)
+		Voice(PizzicatoStrings)
+		o5q97
+		l8v127
+		[9 r1]
+		[20 r1]
+		l8
+		[2 r'df#' 'f#a' 'a>d<' r2]
+		[2 r'c#e' 'ea' 'a>c#<' r2]
+		[1 r'df#' 'f#a' 'a>d<' r2]
+		[1 r'de' 'eg#' 'g#>d<' r2]
+		[2 r'c#e' 'ea' 'a>c#<' r2]
+
+		[2 r'df#' 'f#a' 'a>d<' r2]
+		[1 r'c#e' 'ea' 'a>c#<' r2]
+		[1 r'c#f#' 'f#a' 'a>c#<' r2]
+		[2 r'd#f#' 'f#a' 'a>d#<' r2]
+		[1 r'de' 'eg#' 'g#b<' r2]
+		r1
+
+		[32 r1]
+		o5
+		[2 r'df#' 'f#a' 'a>d<' r2]
+		[2 r'c#e' 'ea' 'a>c#<' r2]
+		[1 r'df#' 'f#a' 'a>d<' r2]
+		[1 r'de' 'eg#' 'g#>d<' r2]
+		[2 r'c#e' 'ea' 'a>c#<' r2]
+		[2 r'df#' 'f#a' 'a>d<' r2]
+		[1 r'c#e#' 'e#g#' 'g#>c#<' r2]
+		[1 r'c#f#' 'f#a' 'a>c#<' r2]
+		[2 r'd#f#' 'f#a' 'a>d#<' r2]
+		[1 r'de' 'eg#' 'g#b<' r2]
+		r1
+
+	TR(14)
+		Time(137:1:0)
+		Voice(OverdrivenGuitar)	
+		o5l8q100
+		v127
+		'f#2^8a2^8''df#''df#''f#a'
+		'f#2^8>d2^8<''f#>d<''g#>e<''f#>d<'
+		'f#4.>d4.<''e^1>c#^1<'
+		r'ea''eb''e>c#<'
+		'f#2.>d2.<''f#4>d4<'
+		'a4>f4<''a4>f4<''g4>e4<''f4>d4<'
+		'e1.>e1.<'
+		r'c#a''da''eg#'
+		'd2^f#2^''<a>d''df#''f#a'
+		'a1>d1<'
+		'g#2^>c#2^<''>c#e#''e#g#''g#b'
+		'f#2^a2^'f#g#a
+		b8 l16>c#<a f#>c#<af# >c#<af#>c#< af#>c#<a
+		f#>c#<af# >c#<af#>c#< af#>c#<a f#>c#<af#
+		'e8b8' l16 >e<b g#>e<bg# >e<bg#>e <bg#>e<b
+		g#e<bg# >e<bg#e <b>g#ed< bg#ed
+
+	#orhit2={
+		v127
+		Expression(127)
+		[7 r1]
+
+		Sub {
+			o4
+			d4r4e4r4
+			f4r4g4r8a8
+		}
+		o5
+		d4r4e4r4
+		f4r4g4r8a8
+		[36 r1]
+
+		#oa1={
+			l4
+			rar2
+			r1
+			rg#r2
+			r1
+			rgr2
+			rf#g#a#
+			rbr2
+			r1
+			rb4r2
+			ref#g#
+			rar2
+			r1
+			rbr2
+			rbr2
+			rbr2
+			r>e4r8e8e8e8<
+			rar2
+			r1
+			rg#r2
+			r1
+			rgr2
+			rf#g#a#
+			rbr2
+			r1
+			rb4r2
+			ref#g#
+			rar2
+			r1
+			rbr2
+			rer2
+		}
+
+		Sub {
+			o4
+			#oa1
+			rar2
+			r4a4l8raaa
+		}
+		o5
+		#oa1
+		rar2
+		r4a4l8raaa
+
+		[16 r1]
+		Sub {
+			o4
+			#oa1
+		}
+		o5
+		#oa1
+	}
+
+	TR(8)
+		Time(60:1:0)
+		Voice(OrchestraHit)
+		v127
+		#orhit2
+
+	TR(13)
+		Time(60:1:0)
+		Voice(SynthBrass1)
+		#orhit2
+
+	#ba1={
+		l4
+		[8 a]
+		[8 g#]
+		[8 f#]
+		d4r4e4r4
+		f4r4g4r8a8
+	}
+
+	#ba2={
+		l4
+		[4 a]
+		[4 g#]
+		[4 f#]
+		[4 e#]
+		[4 f#]
+		[4 d#]
+		[8 e]
+	}
+
+	#ba3={
+		l4
+		d8d8 r2.
+		[4 e]
+		[8 a]
+	}
+
+	#ba4={
+		l8
+		[2 dd r2.]
+		[2 aa r2.]
+		[1 dd r2.]
+		[1 ee r2.]
+		[4 aa r4 ]
+		[2 dd r2.]
+		[1 aa r2.]
+		[1 f#f# r2.]
+		[2 bb r2.]
+		[2 ee r4 ]
+		reeeeeee
+	}
+
+	#ba6={
+		l8
+		[2 dd r2.]
+		[2 aa r2.]
+		[1 dd r2.]
+		[1 ee r2.]
+		[4 aa r4 ]
+		[2 dd r2.]
+		[1 c#c# r2.]
+		[1 f#f# r2.]
+		[2 bb r2.]
+		[2 ee r4 ]
+		reeeeeee
+	}
+
+	#ba5={
+		l4
+		[8 a]
+		[8 g#]
+		[4 g]
+		[2 f#]g#a#
+		[8 b]
+		[4 b]
+		[2 e]f#g#
+		[8 a]
+		[8 b]
+		[4 e]
+		l8 reee eeee
+		l4
+		[8 a]
+		[8 g#]
+		[4 g]
+		[2 f#]g#a#
+		[8 b]
+		[4 b]
+		[2 e]f#g#
+		[8 a]
+		[4 b]
+		[4 e]
+	}
+
+	TR(9)
+		Time(60:1:0)
+		Voice(PickBass)
+		v100
+		Expression(127)
+		o3q100e1
+		l4q50
+
+		Sub {
+			o3
+			#ba1
+			#ba2 #ba2
+			#ba3
+			#ba4
+			#ba5
+			[4 a]
+			l8raaaaaaa
+			#ba6
+			#ba5
+			a.
+		}
+		o2
+		#ba1
+		#ba2 #ba2
+		#ba3
+		#ba4
+		#ba5
+		[4 a]
+		l8raaaaaaa
+		#ba6
+		#ba5
+		a1.
+
+	TR(11)
+		Time(60:1:0)
+		Voice(FingerBass)
+		v100
+		Expression(127)
+		o3q100e1
+		l4q50
+		Sub {
+			o3
+			#ba1
+			#ba2 #ba2
+			#ba3
+			#ba4
+			#ba5
+			[4 a]
+			l8raaaaaaa
+			#ba6
+			#ba5
+			a1.
+		}
+		o2
+		#ba1
+		#ba2 #ba2
+		#ba3
+		#ba4
+		#ba5
+		[4 a]
+		l8raaaaaaa
+		#ba6
+		#ba5
+		a1.
+
+	TR(10)
+		Time(59:4:0)
+		ResetGS
+
+	TR(10)
+		Time(60:1:0)
+		IF(TIMIDITY=1) {
+			Voice(StandardSet)
+		} ELSE {
+			Voice(PowerSet)
+		}
+		$b{n(Kick1),} //36
+		$s{n(Snare1),} //40
+		$S{n(Snare2),} //40
+		$o{n(OpenHiHat),}//46
+		$p{n(PedalHiHat),}//44
+		$h{n(ClosedHiHat),}//42
+		$T{n(HighTom1),}//50
+		$t{n(HighTom2),}//48
+		$M{n(MidTom1),}//47
+		$m{n(MidTom2),}//45
+		$L{n(LowTom1),}//43
+		$l{n(LowTom2),}//41
+		$c{n(CrashCymbal1),}//49
+		$y{n(CrashCymbal2),}//57
+		$K{n(Sticks),}//31
+		$R{n(RideCymbal1),}//51
+
+		#r0={
+			Rythm {
+				v127s16v113S16v120s16v110S16
+				v127t16v113t16v120t16v110t16
+				v127m16v113m16v120m16v110m16
+				v127l16v113l16v120l16v110l16
+				v127
+			}
+		}
+		#r0
+
+		#r1={
+			Sub {
+				Rythm {
+					o4o4o4o4
+				}
+			}
+			Rythm {
+				b4s4b8b8s4
+			}
+		}
+		[6 #r1]
+
+		Sub {
+			Rythm {
+				c2y2c2y4.c8
+			}
+		}
+		Rythm {
+			[4 b4 v127s16v113S16v120s16v110S16 v127]
+		}
+
+		//----
+		[8 #r1]
+		Sub { Rythm { y1 } }
+		[8 #r1]
+
+		Rythm { 'b8h8'b8p4p4p4 }
+		[2 #r1]
+		Rythm {
+			'b8s8o8't8t8m8m8M8M8l8
+		}
+
+		#r3={
+			Sub {
+				Rythm {
+					o8o8p4p4p4
+				}
+			}
+			Rythm {
+				b8b8^2s4
+			}
+		}
+		#r4={
+			Sub {
+				Rythm {
+					o8o8h4o8o8h4
+				}
+			}
+			Rythm {
+				b8b8^2s4
+			}
+		}
+
+		Sub { Rythm {c1}}
+		[6 #r3]
+		[2 #r4]
+		Sub { Rythm {y1}}
+		[6 #r3]
+		[1 #r4]
+
+		#rb2={
+			Sub {
+				#r0
+			}
+			Rythm {
+				b4b4b4b4
+			}
+		}
+		#rb2
+		//----
+		Sub { Rythm {c1}}
+		[15 #r1]
+		#rb2
+		Sub { Rythm {y1}}
+		[15 #r1]
+		Sub {
+			Rythm {
+				c2y2c2
+			}
+		}
+		Rythm {
+			'b8s8o8't8'o8t8'm8'o8m8'M8'o8M8'	l8
+		}
+
+		//---
+		Sub { Rythm {c1}}
+		[6 #r3]
+		[2 #r4]
+		Sub { Rythm {y1}}
+		[2 #r3]
+		Sub { Rythm {c1}}
+		[2 #r3]
+		Sub { Rythm {y1}}
+		[2 #r3]
+		Sub { Rythm {c1}}
+		[1 #r4]
+		Sub { Rythm {y2c2}}
+		#rb2
+
+		//---
+
+		Sub { Rythm {y1}}
+		[15 #r1]
+		#rb2
+		Sub { Rythm {c1}}
+		[14 #r1]
+
+		Sub {
+			Rythm {
+				R5R7R9R11R12R13R12R11R9R7R6R4
+			}
+		}
+		Rythm {
+			'b1o1'
+			r2r4r24m24M24m24l4
+		}
+}
+
+///////////////////////////////////////////////////////////////////////////
+// Tempo Track
+///////////////////////////////////////////////////////////////////////////
+
+TR(16)
+	Time(1:1:0)
+	Tempo 100
+
+	Time(3:3:0)
+	Tempo 85
+
+	Time(35:3:0)
+	Tempo 250
+
+	Time(40:1:0)
+	Tempo 240
+	Time(60:1:0)
+	Tempo 150
+
+End
+///////////////////////////////////////////////////////////////////////////
+以下、base64 + 7zip
+
+N3q8ryccAANdF/JqnCIAAAAAAAAjAAAAAAAAAGPPM+4AIBlIZqfhdN8P+4BxZCY7VQAMhdpo
+CPYHkxQDnWAYtIXvt3f80ij+0H+y7VpLIkg4wY3V+lm/yqpOI1IeYLegcTxLz+3+AhxHYdg3
+b3IaaTQ1wPPSBdQlKbhtl+d1WDuLfUEkSh9vDjhcLxBzmPB+jQs1Q/FETxe6gpoLhmzVuI5J
+UcbIXsr9DRVkzbogiIb/aAC9oONWLbuSHtpKuVL52hVtbARW5UcyS5KDPAu77s5U3hgouDdH
+b6ePLaEBMBPa6MmQ3RYZo0WpbV7bjwQnAIjpP5/gf8fCt18m6sEHH9QbnwEGto2AtXfQxJBO
+cxm7EjSYht2c4MmTQYWMg0KQDukQ5MR+eCteMANClSiP53ynSvWWSUJQ08XFoY2avTNHqziu
+12P8B/KFMYqHaWaiiTv/FQXc52uBVUFN4AlWlyBVn+LlX0YxW82N65UVIpsx06aNRZobK0N/
+ADQF9XTLPhJdMCf5x0xDYtYpMExmwZIABiHM+d4u7XgnxFiOgkvIlERP2fwlSVn0qSLuJGf8
+Eh48rnyN/zPWmIyc11jArRi5Ryo5ldZRRjd2NiNEqh9GprpCAMKTDEF7nrhFXFDFg60y/pqg
+Gzatnr24p2MYEwIEMvXDmlEd3iKihAXx4IS5SgucDcTfw1In+rGME5/A0Y6Nc67/Z0apcdmJ
+HR3lL96w5u6pONfdRizFu32GMbO8EoKqTxkTLXpP/Z9I065ioJ4VvCHKFPShoK9A110p3UPR
+f4in1qcftx0LTUSh50qCHmd6CBOOVKhqq+486yc7KcqIQXVilPTljsUDPXrOqRLyX0xLIVq3
+OG8cKATAJoS0YUK/MvBj+0MHT4dz2gj9scuqSGBO6kKpphlGHmk4i/3Rlk9yLN98lVTiY2Hr
+nMzHl7+tsGErtEaLvjCXV7nZCt3YLUIRX+YPmOIKRZZHdzdPmB5Qv+ZIgrp3ysPPZL6c9r+4
+rX24uF0J6UdGFlNCBojeX28SVOQzZiLBfQe0iHpmfAAlJRgC8Wa3WLhGm2GaQuUBn6ku6T1I
+56OHsOmh7p+tp/b/DjC+fuOwPlaS/tI0WzJxLgEr+PI6ZEmKS5N8v3pIUr68+gjgXOLXgP1h
+d9TDL4rtMW+rJjtuV1f8R86n4v+1ItzBRXoG2x/KSurYbgAgDVNPMSBDBUo9t63jv8Ojnl/4
+1j4iAdKHDvTvv1VeQ2hfbsMlUUioFVawLClHyDOwTQsZbct4QcnETUxDmrAU1eTGmrDA6r/f
+jxaks8JawGtG+u2vJ3NLEogUtcpNKIjYM+G+C94pZqa+pRk19iBCYiOiLl2H+JTXSQk1+gff
+Vt/TPopielllTF3wFgfifH0MZaPDTY9u9raC/U1uY59oTziex0TVFoqN0QglvRwbiWkuuAjB
+WpiEwdQumUcTLzDbh1uY9Hyd2wlBEP3St5HAbzO0J3vCb4CvDgmVS9sHRA2qO467oajm5va3
+xAcSs2zhe3GZeepOhvfnaz8y/FsDb5KWhFQSOqcdTEl7b4u2j8WmQ2ArazLkA3zeH14cOw4E
+yeIoWKD+UggN7it3NwD4IdWfltMT9adoZ69jV1pfxoAlM2epaD+2loOCGdwXSyffbYm2Vdxl
+rsoPgf8/hYB4npFxpwp4w2J2jTrQf6JQpmTvNNvTIRhY/Wjntp8lZfWjrxPsywNBwPl5YcLj
+fqnuHoFJbnwBzeCWdlwxuaT1V+RZgs7gqQd3g7DRDWoNUp8XYIKfFizdFk6WtS6G333PKVH4
+UWccP0NTYMG5WTYac0U5kKir6TOfxiv9bWx2eTWIsm7Lj4yFDlU9TFbeJ0VDcZ0XMV3OL/UE
+h0NOkiiJe6JNc6XS6+tP36D323iaeWZ8hPfDqNL3yn+x1J05UKKDc+2pnzGWxWPqh8YoMBMw
+gKychkp52dkYDk84Xsl3d7XSV3lq60CK0S1n7gXVqw/xtdFf2SFjTHg7JBACadWJhp1FyZ3O
+21xFzTBXmzgIami77CVkmr9dfTSsJ8pS2HHp+JA6XO+qbwLWLpR2ZDaYGR+2AYNmrIE2PRe4
+eBVZJr/bIKCDh7QSbMsDdos1nVknYIPGfKMWATO1RCS+x1XCK2eQuP7XU6o/Fm4lgDMgWYH4
+1bhi7vjFmNjMkiFB6xIw5BxNQ1e5fNTLUY8gyNJxsUj8Yo/fyf1coSOdcNZ5PtuLL4o2FgJN
+cctmLg3940S0a4/bgR8Po3/9cmDPEs5AsEZAEiqfPIjXnX82fT0hr8xGf9UuOiTFRu7v/+6V
+2xAQG46VaNKDCnFqUFsudP3b40E8qmn41lCqT5KAs8x+1yvOVBfn0SLHImoKSJNrgwBArEDb
+ksXeWiUeISWgd/3AcVl3biAur2PE6GQlNtSyJG4tpk0LauGVR5iw648skHSXem6XLGPlsI7b
+LDe57K/rnPuoHYgwgAr6DkmH2bPt1/yoVOdvOfuwtopv69a+BpJ9NnZhpV05DE/1+ubu3z1U
+I7O506iagksYnvKrGGrPjDp4rTkFA9E+UzzBfSBL9GnzG4hznKlGPYNmGNajucfvikwq09r4
+tZlX/8aISUJVZV3442wH7Msa8jmSVTXb387ANGQZIegg6RUo/MjSQXfgEcxtwZLkquBm5UsL
+63gHjztmavFnzIBpByg4qEnUdXy3/RHaRHLj9BiO6leCMWTPLHKfMHQWBYAnwg/SNO+EgSuO
+QzZSp1+zg7AvqXtLZwVlKtxVZ5DIKkCM4YZhww1+ZzDJYCOTQBgeLTenX8/MzuVInn8DB5sv
+76Y2zVqtPBi24ybRgLAVEUII3j6pYKlHL1Jyjfbv3d0kydMh0jX7GmXQfr3KnlIosuD4w5Bm
+d+QOUZ7+470EVNdyYEHt5opp9A8YM8I7yfLVMBP/Z0XKA/E+AbnA7xnqPoxlngk46tulgTzQ
+YThHuURd7NYYZaqey++Rxt9MIbtHAx5LTjtZ/8LOIqhw0hGXbZikfqf3kskX3xo/QLO129Cn
+/7BBDlgVYUUCvkBngE3nS8oe2STz1zq2XKuTFkZ2hrDmzNvi0zWxo734RlDwPACz6jnmaMo3
+g5Gb5c/Z1jS7MyFDVDL0nzbBQDMlH4xstlii2Ma1xNJGE5OukJU/Qszo38J/NRAfwEf8ht6q
+cxqMoFqvv9SRmWGutq6tGfnPr7BSJGxRZcpnRdwa+llib22oXeEFAZdr8oqNeZlAWUkm7EAy
+DcCEmQwWwI8XDbLwWykcy/cwFVPhRJrP9cnhJKBPwS5unGqT0zgLqZKx6rPBeCFmRqnbl4oT
+hbyFPL5yPyGn56DfPAaXSDkbWzQoeIwWnCHqGhp4Oczp8f9gR67IncQXZ7PYy3ZyP0k/Q/3N
+HCMLspXVFyfJHomfOTce6yYD3QdIUlQ0eij4LfsKN2VRZ3WUF86UFy6fDUH7B4fDrzz7UIAP
+wr0ZHz7WrUsTssqIE00AjM9Q6gj2UoX+z+93+p7dfTnMJ3PuEPcG4G3RdrPQDEq42HSSKW69
+FBUcGAaoXkmnP2J1Vtxo6rktraKt6Znz8C6uXWQWFKM8mskfgrPGVLuQmp67DZp3dHwolBSO
+/PtzPomRiQQa42fK1HfDo+sEauJxdXB71wIYssNkcnUEIpyIkPQ4sLbu63ei9drhv0kDX/Gn
+R6/PwhDNF+VBFdgDjzYOBpoS54FlvR7daLEPrnkL7zQdRy3/VbOUoI9dgvVha3SIWhfw2N3U
+q47h+EgYSaRcnatb5gLJ3zP8I/9ZIb+dDsr9+bhg+E9IulZC4xH1QMjzdmJ3ZhkB7QbU1m8Z
+v6Eht/e67Gxj9hMmINHVuEYU2N6VT5QYHtC7fa7ke5tpforR0bmeaJnLI4mroJ0z2fG4y4E3
+8vHDt//xOU4coHt6/dPbwMEfJYFFz2wow9jBjy9vZSFZ3ZTYcTog+sx8Rrnh6X2QSvfkvqSp
+HpMhT59wg4Flu4O6Wxhy9X9zfV/6vIc9tmZ87DuRbpuAQa7U31jA7pEZia2GkM/OcyLvfq1I
+tvhJOFmLeN3q3EwQZPZLv8YUvmPMlh0M0ZNLJ6c0OuPdTq5lLVfELTMOZcM8BrzuSOSg21+Y
+VspY5hfF4lQQP5MUeFgf4UPlbkDbV+XFK+w7YsBOYRGwUEOX9fkHCJLmxSjOBefJ2guiWM5j
+FdUbmFmPpCJ2lKFvwt/92cx7up0vkzEX6AU0gv2XPp8own3xby4CRNyhk43t9rDKavpHoNAV
+ipJMxXj/eT5n9rII2fDZ7W+z5U3wXYqf7yzCzgETscAt49Wx24YKDPsNobMAZ7QWZKRsxk8A
+h1y2IFxra6EvWEPSejQ04Xn1Pg2Nml6moQQ4+izzFIBWbHKt3Rd8KCj1rB9ZD5L9rZLJSIAB
+f1JNDQE2FxVGV1k8EH/hl8t8R/HZX5chjWSmUSGwGhpDohtFiIJPYV0FvGXBuimEs8RjOSDk
+9QbcowkhRvwMVX25ZQ8uVCwsJe+l9bhUdP1zB2MsyTFbIRAhkFnGsTlWQB5WiokGTXJX1blp
+xrm0LnOoxc1ca0m+a0YwbhNHp349Wxc8hDzd1CkcCWzvHoHQh5pDVuj0Y1rEBC+fXDYZ1Bqh
+rREZkgS/2YSrMYEE5OHsUAmmx6pm/Ux4LLbnELBxF+uJUiUxchNzrDMbPQ2t2+AWrVvexMpB
+5pG+TPD8MdQ0cmNbX2V5zW0BRGuvNwc7JggjFonN1+lZObXsFJSlFn+tOc04t+L9L1VLLeMI
+haikm00FgyNULuDQ97CSvvcjOt6yzjMgB5G9VLNuKr2lK1ojgekNMyoDMpZHVub/Tgetu3zi
+4xJ5XH29SlVkbkd4WQPLEasxdsH4DAHxT1S2l4CGczBZTtJwkeh5v6DBhARMKYX3HFdqn/pS
+F3Th1B+VM31mlB4BXeQ2cQT7cKjrbJ2dM3rFzqMtXLXrD6mVnECc2VjbmtKhyduHJUUPcJcZ
+NaZgEPe9SUMIxCFa7f9lRLdNtvIfY76xe0m3fUjjk9KWoJuHNld24qOpwZLC04K8NEf+Pg4F
+2wZtFXaJokhN6SpKU2mM86m0cMv9dVbcVGoRycTy9Dn5XOZ75zkjEBquyRw5bKcSg0cNG8uQ
+TEX1JY3O1TcdE6Oh4HvuKh0+ZV46KVKb4Oht2O0UdUXNeGSvV/EVfcy1vjDV/HpACFwE8Inr
+SA5Y1MOaJeZVsOtluifNbTSr+UkF1idBcDHCv/aQ+OkYqDGiaWdU2S+4DUuwL5LtXm3pTuQn
+yR2ScjS9p5J8rOcTVHmGJ1nvWA+0vbqaVzpPh0g7hYhiBnUR4rTeubcYZ0sFRBwIrt3uOZSJ
+joSm8E+qTGw+i1rKwLCWiTr+fvmX5i7a1ZeGFeX92fnRVVG/iOOdaz+dhgrhnQUW/VoWwYwb
+kY+cRiqkSN7kqT5pTzaeQjGe4NXBk5POekq1PpLDT8Uwx1by4q5SmLyyEk5fm6kfUWdiAenK
+hgDEJEQSUv6AecpHskrKajorg2K7mh6vcNN0u5Um6J27OEgOzBAViSJ9HnxTyCJN3vZoj0yx
+OjLVH2awfYyLaIvh/z1mjDlC0IWSpAl39KASLp9felAzGCbNJiz52bzBehM70qCLd3LbMCi8
+XI4QXF6bb4j1wQUw4zyL7r90w5M5Z/n3xMeiRlmlFzZpx/T3lIVS8RSgoAqbhxycgbrDBaEa
+RYA+ZmmYicyZ5iHl5G3QrpB+U62KAFvg01p33p76LxsPG9dRyf//JBipOFHNTB39BDIixlZg
+Y55UVOgUPWuK/r6D5Unk/L7y+miPL7DBpL6/HpHAlJx8RF2PfK09jqIQnFp/aqjiB7R+lRSP
+7Gx1aZlIdglV5WWutj7n6pEhFLi4Iu/6dSrJnjh/TYXJDy0nA9OM/6FJe1Z9gVjACYwvZnbU
+0AjCTesSbZ51iZWQS8m/caCWsgdIQgb8Un5oq1lE7Eeawm2jWCjUvSrSX0VauXJj84y0SLB0
++rYCKe+yga7LAMzU0QTEzAuIn6pyWJ99fvwio1c7YKlIvk+crtmztZVAxHRqiEl1xK0nV+mt
+8+fXqbjrQGx+4qYkt1BQBHfKKuyZBTEElVaTHIL8WdICN8YMKqtnJUpkEbIqRaryNokq2aaC
+aVNKEWbaJtd/+oXcosQp9g42FxCQEy6+wbe/fhMKoSAYBYARJEPqmM3Eu3p86rLAUDaUBH6E
+fgkINYx1uxTxkFh6SygFjy9paPhKU8HCP0+018B9dtZVep09qsQraPVd7Z1EWAw/K7NQW8cS
+aaqxCkqsXTqc9w5umOXTgiSB6IvBJScjk7UW2SLCmHwI9yLwqp93ypZy7BCfDLzP0Ujqe6Zv
+Nse8+dtc+Eh7vzmJ9X9qbtvZULlksFdC/8QnzwSEWvwouRYU7O9lvLMuJLO6Z0b8XuOc8YRz
+fDlQ3ZfXgmmHIg9ZvC2zVmEJRZE4Oofy5kc2UWaUJDvKD9GvwRqjiJMhMTlKDQNtxTatTPzc
+aRS4ZCXyhlgU2292GXr5c9gT5hizB1VdYPYQRoGOBFvKeXEpsWZJ48U+A5ucIfu4DNtTGIye
+WTKykwOHdArh5JB7BkyvNUHLYzMc7YTdy8TBMfOOn0BCGIgUQgi7JgMhHUAL4Mt3F7y8NshK
+pwEHLjBBNXiy4yJAW/BL/YMkmZEtseMLA7eG2q+j1jpQZUnFqhtSHBdhcxKc5Uy7H1V30l/P
+PCRw++bdTK+kYbX8bECuO7No46rFvYygcPirfTX1hVOh1nelpZH1UrH+sXsc6kITZFhDSSbs
+o69mn0x6u+OrkP5hnm85VRStwsbKIhsrLE9YELUbLr0epNST+sW81UlPPBkEE250Q2ImkEwj
+lyaszGzf1CCk7Whh+CmAlx0kvF6jwTq0zcgX+WfgRsSpXpWX3Td+AtpezrtDKXsbGcCs1V65
+r2x0YLfphMqYjPT1aqEAo9AXyGsCqo8fv8vWBwE2Fu2q/q1/xWDQd1z2cVKp2GoFXo6zHkAW
+Yp5/mOIFUZoTSozvddO4hvpcAu+ymyiOcDkS6do+mywTogAfnQndcTv6U7M0H6zxcZ8LEDId
+eOA05pbogngA+fIw8yrPYVMSijVXbbUWHakqMQJADMKwZD4ilF5NFEYz//8U/ks8MGMMB9LO
+IyRdt2tHhb6LyhA+zIeHjklI4fhVPHWWMZfd8dnbZar+/5kJGSeBuUG3V8pMCYh4HK1oBn0Y
+SGuApfMrSa5aGLvwo+SjpaOoct8TO8TF2sBX16iNgcQOLiljTI2jO25lKfOx6l8jzniN08Ys
+DcK5ESd+ABN/1+fNFRsJ8scoVDMGou2yj+Vi4+7svJFm0BJLEc3Q4K+eW7p1aMtrtvMUN+JL
+0dr33MCHyv9Ti1sPO4FS957FlRaBwb1N6vlx9bLacLVSfVLimCPJaeVhiamjyk0ekqt+byRe
+NokO3z4dvqm2JUkg1jjYU/i00dRgTG9qUN2P++3G55cSLB4ov7nPsAjmYcKd4qoYpXih4xbV
+MF5ZI958V+DiSSzYf/ENPAxXR/Qq9MFiROv5QnZ8MdOVxwKSiGuC/DdR/YwggtYqHINQBF26
+UjFfOfKbvZMerFCSsBoKZ5hrSNgPw3khALVOXOCt0n8RX6IEscZ5QyTRZDUfLR/LSfcgvT/4
+J6OinYITeU4nl/95KR98tuZ2bbxeXejeEEm3xuW8OnO3Q3ez0ItOPT0JyEwS+cuG6bjl8yZA
+18cetSLZE0OYloCsOfn7aQSESTbIrgkZOAeUy/nYAyg44RhYf6gxd150EF55mxblRywjlglu
+YQDhliRZpOiG8Qn+U8kPfxCDKV56/Dt5B4D0oPOGe7Fn7TYOZ5UwWHSZ9bUhgv/Y0VyBndfZ
+yP/JXGL4GlpUzcAmqeNTXJmChQfXjqpbONlbyp+4ZKsJ0VRDb0pqjtE3naCbNDbf/FFsWS5R
+6zbX87qE/94oU2bcy+9/Zlysoeyl4dPr8n0g5OSi9dy9tEYBY5k1v5RFdbFkfm6Joa6m21sk
+1305VHBYBanYYYi2/e90KjCxMD3vIDJOVEFzvcVjnbj6JisZbVySpskTGizfkRli1iOvD9tY
+TgusuGtVZRDob/S3X7nCSQjVue6gE8dY4iUQw6DEHS7mSKP0z7jAZ2T24kXgwB6TRTZdRqba
+Z0J7KQ+HF5WZB8bn0EVTCjQ9uANw5mLEfGTB0msx2Xl1so89yBK7nQJa1g5bI2grfPU8OClU
+JYlbWMX31Tzc9Up/mCT3G+SRmm2PeFqJw8nzbzJ2ni5xPI3fGrrWvPXHA6TFpJ4V/3prk+sF
+rrsrO0G3TfkbIuF7I2bbkanbHEsK4Ehkbr32FnCJKALhXBjl22axRw3myNagDetXgJQjMXOg
+AoM0Hb1mYdLZOnMJUxvL51bKQ7KS8pvODc0ZmHJP8OVUsDC3r5Q2ihLdovpGjQ7s2nySNgEs
+7N1m0rHdOLCSxsButshdpXnvYvt/6QDEUccKjuvOlFt6QROhxDVFGPTIEERRpNHO4b6AMlrZ
+Gllcqp20X98vQk4yCqO1qwkWAg16XjJNSb8ArhDY9LamFBW3gnkb1EeAz9osEVkFJ7nLv7jQ
+uwC0WBI0LOXb+JhFi0jvSRikM4DL0hCjqdMH71iPO0ugWL/b/TRGMT56Fy07kab8fNtnfkug
+KuopeACPJFcqFj6ITFbXAz0EPL8BuO4XX4cPHO3p4R80u+VbURULe4ZCiZCOoxG5QJynq8Pu
+N1VXjSsD5d9ZCHB/pdCamF0F2haSLq8hkBI56TzF40bzfLdyi3duRGmUIDDipcxs49heToYR
+Ni1aGcJJorlEqGsqmO8z6ePt5s6hkCh4+837VSEarFN2aZk5oTTNL3XeOUHYvkH7U0ot7S97
+ac6DzHckYY3oHVMyo3ojjwrLwA+9EKwnXukERcgvWv0qA5OqKBRo8rSzQPBcazTL2u4AVz+9
+H1HGQNfaA4SaySqKpcdKLurGpEeXU6LAOaaWDfXi0Q06r4BnPNjH6H1Cw8zDxbFlA1GxUrbU
+MkIL1/xeALqjirYE0NY/ggP6MZj9nlwZyLHlrynEZLNjo2pR/XIiAWQfqs3yXKCp0LBDvCph
+DdxMvY/0CYNJSeDLukaTbSpQEuXkIYzk/69vsrQfAvfNqba+WAn9Iid13v9KRjHB9gCj+DyM
+0LjNKRo1q/GZbqaD0BMN4CWOKKmmMOSC6hBiYO6izYGk+vvqiqIdvYE5fqs0ggPLcOS73v3Y
+5X77ouTunK6gyaKaFwMkJrkD+WjGqJpjNoQ8g3WOOwjSUgkZ0C6vqAcONQ3AAX3x9A+ZJNtu
+IJHnXGxM1nK8NeSCrTsLjNBMSB7NmiwmqvOjwLBv2WmR2ckVk7eW55r67BuOcKJHj3Et6auJ
+nz3eLLZDrsoTBpzbrDEmwYlOEiosre5IO6VjstMcS/c0574ijCZwJPw/6KOAhIiYC4f5ur/e
+D2U/GwyOiGHLPX6W6WuIX22dYFmFD65msH/o0aUn1U5rqR5h+IeaXD1b3KXGgrBWlFQTwODq
+LlY/oHZqxhDSVRfq/GDqJbRqwhTNVbblYVfDCNeFleGoehigFnTVizxRIQsis9x5Dv9SkQD3
+PWZgY6VD9lw8RUwGJjnsX6qSuTg1r9Sh5D+SsK5eFCGjOM0+nJVjJ7i8PoExMGj40AWXX9W8
+Woek1JadF/K3JpH1XQ4EJsFVg75RACmtfMDHGuTiWaweScGY2zZpFJF2JSDrmTLhI5HCtcRp
+48IqYYfu9bIJ00aDCI1Pqc08fCqoOTWOIQmv6b8ZkvJzg4cCsfih+W6fMc11fA+/FWNZtKev
+3KuZHHz3praGAOAJwNZGjuIssDpN3w7//y4nWl7pM5iMBohDONrL5xAQVKCIkH2UXx9OKdzJ
+dztOMeEOF5ainWyOJRNoaCO4TRJElvMqU9qHmucWzQNJbJjH9mib4M9GQKS8+YaOO6YaOzgE
+EgelkEBK0fHU+tjPzGA6QErgBF015nWo55nvCbNu2b6ZjRFlO7HkAFc24ty5a1vKdSoj3NDh
+GBjJwNgvZYyyX+HQDmA6fphEc+dXoV8Tm2ozaXCef+M8s8SP1kGI5VUX1fGoChXLjXeAQtJ0
+7ytz4H/Mp8SBlhtjEXpvd3/kF530Nigv64reT4oNZUJJ9bqfsdorSzhlUt5rB2XURPA90Lug
+R2deyUMhmInSu3Kcn+tHRkjE23OiYyEQUBJnuSrkFhi3jTyA0vBfxzySWaRhYgP+7v6F/9+e
+YqxrIjKDUBbeEThi+vYa5odi68QZ3S0G4lv+M3NSTaoSGwueeqpmDLgvPdzy1VNdJJNRWR0b
+Y5+53FbIEJOi1dgyoHOEETQM8cgjostUWmqtWAyQEFaDb3sKGVBPI5aR/uBTXytE6xptTOIW
+1tJ4rH4qN5sAFC7mX+H7RmEPXYBgWPnCxXzMHRkg/xgXOEwdEZ6cS4RxEp3HoC4iDkDmfIA5
+p0g7YmEO4s4VS+zYGFtCXvXoBAXLkkG+XcHplIfZ5syrvza/PFHl9bCrWzd6y3QXKBD8kLHB
+hyJv7ZPINu/o45LczR9wMgzW1AqitKg6IgWu/W1e4MHQrDzWA3Sz5HcJHEFQOe2QOa1NlmYr
+OzqXxez469ZG9Gusi2n+LG6PbtZKqny28NforCABYOLHfIpFMkP5gkFxa9KbL5dGcY7OlwLc
+2gvUT3zdnPGD/6tX87bKYw4V6T90m/bkuupBKYHuSjN6eFtlTh4VJ+u51YtvUzSIhO1W1Kn7
+ZX/qaL0HsNcopP9BZ+kv8WlIOm0xHXFJp28moKFsFClOH6aOhwYKvkTOWkkWEjmoJe5TX+kW
+NpY9IkRub6rBercNmP3kGir4e/xUqVvDilCB2ZQZHU/KItQU+C1E0e0CcqFjMBMxjfzpkNi5
+NojBQb0/3eUzTbnJjovXGLwh84eSzHtf79hOflu2ZfWFUjc0OcYSFIMNVeCZ9SnPDlqYqKcT
+7xuDlTB+YY91Kul32IswkdyjgNnjXyvQmUzexSw1/Hdt9SDymqZpdSFmBRUl+RiK72CDfnWV
+Er6ML7Eeu489YZcJxvWUGiWtCzxOpfXrkaoEttVSCfNROs4kpyh4GEopuxf+nUOtPDAQ/E/y
+sUg6nag/tFc7DxGnc3vu3X7e6TGv0cDcbHHR+xLs0srPzqspqVK2wmhuJVTi4u4YfFppppAi
+O6rSJtAqHWhupruDtOt7hgA4DqskC4BIhXG2hD6izNJrydmzvTruSO9et+2JWX++ub2wRn2X
+fxRZu56egUy6qBNfIAYf8sWx72eAaaM7KPRNQWASM1cReqJ/QmhIJRj53xhpCoLt8vpgLwai
+B5rxCFwvTMbWqmUBmOFftR79ALSN2ImGL4F66/xnq+QiHm9b7sB4xQfoGOBTw2MKWPMrJh76
+AxjdQpYNhh1q8+8oJKQLsuAqn/3t1vMRjKX/4AcuTfaXP2ieV6dJQ+znGeKUSgAAgTMHrg/W
+mg3BlyTT/rN+L4mSvr49CrGQ4eWui/qkfG9mImGgx4b3CRmFz8OFbyOcch10kDGGRWk0UL+v
+6PObMxG/reVdSzIce2EeIUj3nEyW5xLf61GxtpDevMHrN/M9yLNdvaKYIvJYTFM8di3t55yv
+m8EKjOrwiEL220rjNLdnbjmXH9UDw+nEde8Q2dZ16G4CFQOgexEWnwPILW+QhLCjrG4Gnp8s
+VTv/TcOlMVhWQ52+g/aGER3hMiR6mMql6+kHZs1rn1gyEM+Oj8xDtc796hNuFCBkwA6kQ8nz
+1quQPU9lQ7f7koXrYkJMU9wZ2tHe813LjnjOqa1RSwu/yz0SE5N/VLny23m09Y8asgEvjdHw
+u1KI6qF5apKA1ukSArOOvr8LtqetYPyUtTJKM+D9I4PXNgwAFwahYgEJgToABwsBAAEjAwEB
+BV0AEAAADINYCgEEbYYuAAA=
