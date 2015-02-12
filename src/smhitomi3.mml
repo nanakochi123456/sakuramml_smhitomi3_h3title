@@ -12,9 +12,16 @@
 Int VOCALOID=1 // BACK=0だと69小説目から開始する
 Int BACK=1
 
+Int LOGO=1
+Int OP1=1
+Int OP2=1
+Int OP3=1
+Int THEME=1
+
 Int SING=0 // 0 のまま
 Int TIMIDITY=1
 Int THEMEONLY=0
+Int GAKUHU=0
 
 ///////////////////////////////////////////////////////////////////////////
 // Memo
@@ -97,1216 +104,1415 @@ IF(0) {
 曲名={"SM調教師瞳3 オープニングメドレー  with VOCALOID3(Hatsune Miku) + CeVIO Creative Studio FREE"}
 作者={"ゆった@NEET株式会社 00264 なの @nanakochi123456 有限会社EJ"}
 
+IF(GAKUHU=0) {
+	System.TimeBase=10368
+	Expression.Frequency(1);
+	Modulation.Frequency(1);
+}
+
+
 ResetGS
 Reverb(127)
 
 #PEDALON={Sub {r16y64,127}}
 #PEDALOFF={r-32 y64,0 r32}
 
+// シンバルのロテート
+Int CYMINIT=0
+Int SNAREINIT=0
+Int TOMINIT=0
+
+Function Tom(Int NO) {
+	Int CC
+	Int V=0
+	IF(NO=1) {
+		V=3
+	} ELSE {
+		IF(NO=2) {
+			V=7
+		}
+	}
+	IF(TIMIDITY=0) {
+		CC=HighTom2-V
+	} ELSE {
+		IF(TOMINIT=0) {
+			CC=HighTom1-V
+			TOMINIT=1
+		} ELSE {
+			CC=HighTom2-V
+			TOMINIT=0
+		}
+	}
+	Result=CC
+}
+
+Function Snare() {
+	Int CC
+	IF(TIMIDITY=0) {
+		CC=Snare1
+	} ELSE {
+		IF(SNAREINIT=0) {
+			CC=Snare1
+			SNAREINIT=1
+		} ELSE {
+				CC=Snare2
+			SNAREINIT=0
+		}
+	}
+	Result=CC
+}
+
+Function Cymbal() {
+	Int CC
+	IF(CYMINIT=0) {
+		CC=CrashCymbal1
+		CYMINIT=1
+	} ELSE {
+		CC=CrashCymbal2
+		CYMINIT=0
+	}
+	Result=CC
+}
+
 IF(BACK=0) {
 	PlayFrom(69:1:0)
 }
+
+IF(LOGO=0) {
+	IF(OP1=1) {
+		PlayFrom(3:3:0)
+		ResetGS
+		Reverb(127)
+	} ELSE {
+		IF(OP2=1) {
+			PlayFrom(36:1:0)
+			ResetGS
+			Reverb(127)
+		} ELSE {
+			IF(OP3=1) {
+				PlayFrom(40:1:0)
+				ResetGS
+				Reverb(127)
+			} ELSE {
+				IF(THEME=1) {
+					PlayFrom(60:1:0)
+					ResetGS
+					Reverb(127)
+				}
+			}
+		}
+	}
+}
+
+Function BG(Str MML) {
+　　Str BUF=""
+    Str FIRST=""
+　　Str ML=""
+　　Str M
+　　Str R
+    Str FM
+    Int C=0
+
+　　BUF=""
+    R=""
+　　For(Int i=1; MID(MML, i, 1)!=""; i++) {
+　　　　M=MID(MML, i, 1)
+//        Print("Count "+ C + " Str="+M)
+　　　　IF(M="a"||M="b"||M="c"||M="d"||M="e"||M="f"||M="g") {
+		C++
+	  	IF(C<3) {
+			FIRST=ML
+			ML=FM+M
+			FM=""
+		} ELSE {
+//	　　　　　　R=R+"r"+Random(192,384)
+	　　　　　　R=R+"r"+Random(144,384)
+　　　　　　　　	BUF=BUF+"Sub" + CHR(123)+R+ML+CHR(125)
+	　　　　　　ML=M
+		}
+　　　　} ELSE {
+		IF(C>0) {
+	　　　　　　ML=ML+M
+		} ELSE {
+			FM=FM+M
+		}
+　　　　}
+　　}
+　　BUF=BUF+"Sub"+CHR(123)+R+ML+CHR(125)+FIRST
+//    Print(BUF)
+	IF(GAKUHU=1) {
+		BUF="'"+MML+"'"
+	}
+　　BUF
+}
+
+Function RandV(Int MIN, Int MAX) {
+	Str MML="v"
+	MML=MML+Random(MIN,MAX)
+//	Print(MML)
+	MML
+}
+
+Str RMML
+Function RandR(Int MIN, Int MAX) {
+	Str MML="r"
+	IF(RANDON=1) {
+		RMML=RMML+"r"
+		Int VALUE=Random(0,10)
+		IF(VALUE<5) {
+			MML=MML+"-"
+		} ELSE {
+			RMML=RMML+"-"
+		}
+		Str RAND=Random(MIN,MAX)
+		MML=MML+RAND
+		RMML=RMML+RAND
+//		Print(MML)
+		MML
+	}
+}
+
+Function SyncR() {
+	Str MML=RMML
+	RMML=""
+//	Print(MML)
+	MML
+}
+
 
 ///////////////////////////////////////////////////////////////////////////
 // Seibu Kikaku Logo
 ///////////////////////////////////////////////////////////////////////////
 
-IF(BACK=1) {
-	TR(5)
-		Time(1:1:0)
-		o5q90
-		Voice(BrightPiano)
-		l8
-		v110
-		#PEDALON e4 c e #PEDALOFF #PEDALON g4 e4 #PEDALOFF
-		#PEDALON c4  Sub{l28cdefgab}r4> Sub {r8 #PEDALOFF #PEDALON } c2 #PEDALOFF
+IF(LOGO=1) {
+	IF(BACK=1) {
+		TR(5)
+			Time(1:1:0)
+			o5q90
+			Voice(BrightPiano)
+			l8
+			v110
+			#PEDALON e4 c e #PEDALOFF #PEDALON g4 e4 #PEDALOFF
+			#PEDALON c4  Sub{l28cdefgab}r4> Sub {r8 #PEDALOFF #PEDALON } c2 #PEDALOFF
 
-	TR(6)
-		Time(1:1:0)
-		Voice(GrandPiano)
-		v90q90
-		#PEDALON 'c2e2g2' #PEDALOFF #PEDALON '<g2b2>d2' #PEDALOFF
-		#PEDALON 'c1e2g2' #PEDALOFF
+		TR(6)
+			Time(1:1:0)
+			Voice(GrandPiano)
+			v90q90
+			#PEDALON 'c2e2g2' #PEDALOFF #PEDALON '<g2b2>d2' #PEDALOFF
+			#PEDALON 'c1e2g2' #PEDALOFF
+	}
+}
 
 ///////////////////////////////////////////////////////////////////////////
 // OP1
 ///////////////////////////////////////////////////////////////////////////
 
-	TR(5)
-		Time(3:3:0)
-		v100
-		o4l8
-		IF(SING=1) {
-			Voice(ChoirPad)
-			q90
-			// あの
-			g4a4
-			// せかい たま
-			b4ee&erga
-			// にぎわす しょ
-			bb>f#f#&f#ref#
-			// じょのゆくふ
-			a&gf#g&g<b&b>e
-			// めい そし
-			d8d4r<b4>d4
-			// てじさつ いや
-			dc<b>c&c4r<a16b16>
-			// ゆくえふめい いや
-			c<b16b16a#b&b4rb16>c16
-			// じさつなの
-			dc<b>c&c<be&g
-			// か いや
-			f#2 g4a4
+IF(OP1=1) {
+	IF(BACK=1) {
+		TR(5)
+			Time(3:3:0)
+			v100
+			o4l8
+			IF(SING=1) {
+				Voice(ChoirPad)
+				q90
+				// あの
+				g4a4
+				// せかい たま
+				b4ee&erga
+				// にぎわす しょ
+				bb>f#f#&f#ref#
+				// じょのゆくふ
+				a&gf#g&g<b&b>e
+				// めい そし
+				d8d4r<b4>d4
+				// てじさつ いや
+				dc<b>c&c4r<a16b16>
+				// ゆくえふめい いや
+				c<b16b16a#b&b4rb16>c16
+				// じさつなの
+				dc<b>c&c<be&g
+				// か いや
+				f#2 g4a4
 
-			// それらは うら
-			bbee&erga
-			// そしきの しわ
-			bb>f#f#&f#ref#
-			// ざにすぎな
-			agf#g&g<b&b>e
-			// い その
-			d4.r<b4>d4
-			// ひょうざんの いっかく
-			dc<b16b16>c&cr<a16r16b16b16>
-			// にすぎない わた
-			c<ba#bb4rb16>c16
-			// したちはどな
-			dc<b>c&cg4g
-			//の
-			f#4.r
+				// それらは うら
+				bbee&erga
+				// そしきの しわ
+				bb>f#f#&f#ref#
+				// ざにすぎな
+				agf#g&g<b&b>e
+				// い その
+				d4.r<b4>d4
+				// ひょうざんの いっかく
+				dc<b16b16>c&cr<a16r16b16b16>
+				// にすぎない わた
+				c<ba#bb4rb16>c16
+				// したちはどな
+				dc<b>c&cg4g
+				//の
+				f#4.r
 
-			// たい
-			e4f#4
-			// くつ な
-			a4.g&g4re16&f#16
-			// まいにち のなか
-			a8a4ggrgf#16g16
-			// つきにいち
-			b4>c<a& ac4e
-			// ど えす
-			d2r rd8d8
-			// えむくら　ぶ え
-			dc<b>c g4rc
-			// いくことが　たの
-			c<ba#b>g rf#g
-			// しみ だた
-			a4g4 f#&erf#&
-			//    いた
-			f#4.r e4f#4
-
-			// みつけて　かい
-			agf#g&g4re16f#16
-			// かんになる おれ
-			a16a16gf#g&g4rf#16g16
-			// のこころに
-			b4>c<a& ac4e
-			// は み
-			d4.rrd4
-			// たされて く あ
-			dc<b>c g4rc
-			// たたかみ に
-			c<bge &e4.r
-			// みちてゆく
-			f#4a4 gf#4e&
-			e2r2
-		} ELSE {
-			Voice(Viola)
-			q98
-			o4
-			g4a4
-			b4ee&erga
-			b4>f#f#&f#ref#
-			agf#g&g<b&b>e
-			d4.r<b4>d4
-			dc<b>c&c4r<a16b16>
-			c<ba#b&b4rb16>c16
-			dc<b>c&c<beg
-			f#4.r g4a4
-
-			b4ee&erga
-			b4>f#f#&f#ref#
-			agf#g&g<b&b>e
-			d4.r<b4>d4
-			dc<b>c&c4r<a16b16>
-			c<ba#b&b4rb16>c16
-			dc<b>c&cg4f#&
-			f#4.r
-
-			#v1={
+				// たい
 				e4f#4
-				a4.g&g4re16f#16
-				a4.g&g4rf#16g16
+				// くつ な
+				a4.g&g4re16&f#16
+				// まいにち のなか
+				a8a4ggrgf#16g16
+				// つきにいち
 				b4>c<a& ac4e
-				d2r4d4
-				d4cg& g4rc
-				c4<b>gr ef#g
-				a4g4 f#e4f#&
+				// ど えす
+				d2r rd8d8
+				// えむくら　ぶ え
+				dc<b>c g4rc
+				// いくことが　たの
+				c<ba#b>g rf#g
+				// しみ だた
+				a4g4 f#&erf#&
+				//    いた
 				f#4.r e4f#4
 
-				a4.g&g4re16f#16
-				a4.g&g4rf#16g16
+				// みつけて　かい
+				agf#g&g4re16f#16
+				// かんになる おれ
+				a16a16gf#g&g4rf#16g16
+				// のこころに
 				b4>c<a& ac4e
-				d2r4d4
-				dc<b>c g4.c
+				// は み
+				d4.rrd4
+				// たされて く あ
+				dc<b>c g4rc
+				// たたかみ に
 				c<bge &e4.r
+				// みちてゆく
 				f#4a4 gf#4e&
 				e2r2
-			}
-			o5
-			#v1
-
-			TR(6)
-				Time(3:3:0)
-				v100
-				o4l8
+			} ELSE {
+				IF(TIMIDITY=1) {
+					IF(LOGO=1) {
+						r-46
+					}
+					v59
+				}
+				Voice(Viola)
 				q98
-				Voice(Violin)
-				[16 r1]
-				o7
+				o4
+				g4a4
+				b4ee&erga
+				b4>f#f#&f#ref#
+				agf#g&g<b&b>e
+				d4.r<b4>d4
+				dc<b>c&c4r<a16b16>
+				c<ba#b&b4rb16>c16
+				dc<b>c&c<beg
+				f#4.r g4a4
+
+				b4ee&erga
+				b4>f#f#&f#ref#
+				agf#g&g<b&b>e
+				d4.r<b4>d4
+				dc<b>c&c4r<a16b16>
+				c<ba#b&b4rb16>c16
+				dc<b>c&cg4f#&
+				f#4.r
+
+				#v1={
+					e4f#4
+					a4.g&g4re16f#16
+					a4.g&g4rf#16g16
+					b4>c<a& ac4e
+					d2r4d4
+					d4cg& g4rc
+					c4<b>gr ef#g
+					a4g4 f#e4f#&
+					f#4.r e4f#4
+
+					a4.g&g4re16f#16
+					a4.g&g4rf#16g16
+					b4>c<a& ac4e
+					d2r4d4
+					dc<b>c g4.c
+					c<bge &e4.r
+					f#4a4 gf#4e&
+					e2r2
+				}
+				o5
 				#v1
-		}
+
+				TR(6)
+					Time(3:3:0)
+					v100
+					o4l8
+					q98
+					Voice(Violin)
+					[16 r1]
+					o7
+					#v1
+			}
 
 
-	TR(7)
-		Time(3:3:0)
-		r2
-		Voice(TremoloStrings)
-		v80
-		l1q100
-		[8 r1]
-		o4
-		'g>e<'
-		'f#>d#<'
-		Sub{g^}>ed<
-		Sub{>e^^<}aga
-		'b>f#<'
+		TR(7)
+			Time(3:3:0)
+			r2
+			Voice(TremoloStrings)
+			v80
+			l1q100
+			[8 r1]
+			o4
+			'g>e<'
+			'f#>d#<'
+			Sub{g^}>ed<
+			Sub{>e^^<}aga
+			'b>f#<'
 
-		Sub{g1^1^1^1}>ed#ed<
-		'a>e<''g>e<''a#>e<''b>f#<'
+			Sub{g1^1^1^1}>ed#ed<
+			'a>e<''g>e<''a#>e<''b>f#<'
 
-		Voice(FrenchHorn)
-		v65q98
-		o4
-		l1
-		Sub{g1^1^1^1}>ed#ed<
-		'a>e<''g>e<''a2>e2<''f#2>d#2<' 'g2>e2'
+			Voice(FrenchHorn)
+			v65q100
+			o4
+			l1
+			Sub{g1^1^1^1}>ed#ed<
+			'a>e<''g>e<''a2>e2<''f#2>d#2<' 'g2>e2'
 
-	TR(8)
-		Time(3:3:0)
-		Voice(PizzicatoStrings)
-		o5r2l16
-		v50
 		#egb={rreg brgr >er<br grbr}
 		#dfb={rrd#f# brf#r >d#r<br f#rbr}
 		#ceg={rrce grer >cr<gr ergr}
 		#dgb={rrdg brgr >dr<br grbr}
 		#eac={rrea >cr<ar >ercr <ar>cr<}
 
-		Sub {
-			o4
+		#tr8pizz={
 			[2
-				#egb #dfb #ceg #dgb
-				#eac #egb #ceg #dfb
-			]
+					#egb #dfb #ceg #dgb
+					#eac #egb #ceg #dfb
+				]
 		}
-		o5
-		[2
-			#egb #dfb #ceg #dgb
-			#eac #egb #ceg #dfb
-		]
 
-	TR(9)
-		Time(3:3:0)
-		Voice(Cello)
-		v80q95
-		o4r2l8
-		[16 r1]
-		e4gb &b>egr<
-		d#4gb &b>d#gr<
-		c4eg &g>cer<
-		<b4>dg &gb>dr<
-		c4ea &a>cer<
-		<b4>eg &gb>er<
-		c#4eg &g>c#er<
-		d#4f#b &b>d#f#r<
+		TR(8)
+			Time(3:3:0)
+			Voice(PizzicatoStrings)
+			r2l16
+			v50
+			o4
+			#tr8pizz
 
-		e4gb &b>egr<
-		d#4gb &b>d#gr<
-		c4eg &g>cer<
-		<b4>dg &gb>dr<
-		c4ea &a>cer<
-		<b4>eg &gb>er<
-		<a4>c4 <b>d#f#b
-		egb>e<
+		TR(13)
+			Time(3:3:0)
+			IF(TIMIDITY=1) {
+				Voice(47)
+			} ELSE {
+				Voice(PizzicatoStrings)
+			}
+			r2l16
+			v50
+			o5
+			r75
+			#tr8pizz
 
-	TR(11)
-		Time(3:3:0)
-		Voice(Contrabass)
-		v90q96
-		r2
-		o3
-		[2
+		TR(9)
+			Time(3:3:0)
+			IF(TIMIDITY=1) {
+				IF(LOGO=1) {
+					r-46
+				}
+			}
+			Voice(Cello)
+			IF(TIMIDITY=1) {
+				v45q95
+			} ELSE {
+				v80q95
+			}
+			o4r2l8
+			[16 r1]
+			e4gb &b>egr<
+			d#4gb &b>d#gr<
+			c4eg &g>cer<
+			<b4>dg &gb>dr<
+			c4ea &a>cer<
+			<b4>eg &gb>er<
+			c#4eg &g>c#er<
+			d#4f#b &b>d#f#r<
+
+			e4gb &b>egr<
+			d#4gb &b>d#gr<
+			c4eg &g>cer<
+			<b4>dg &gb>dr<
+			c4ea &a>cer<
+			<b4>eg &gb>er<
+			<a4>c4 <b>d#f#b
+			egb>e<
+
+		TR(11)
+			Time(3:3:0)
+			Voice(Contrabass)
+			v90q96
+			r2
+			IF(TIMIDITY=1) {
+				r-35
+			}
+			o3
+			[2
+				e1
+				d#1
+				c1
+				g1
+				a1
+				g1
+				a1
+				b1
+			]
 			e1
 			d#1
 			c1
-			g1
-			a1
-			g1
-			a1
-			b1
-		]
-		e1
-		d#1
-		c1
-		<b1>
-		c1
-		<b1>
-		<a#1>
-		<b1>
-		e1
-		d#1
-		c1
-		<b1>
-		c1
-		<b1>
-		<a2b2>
-		e2
+			<b1>
+			c1
+			<b1>
+			<a#1>
+			<b1>
+			e1
+			d#1
+			c1
+			<b1>
+			c1
+			<b1>
+			<a2b2>
+			e2
+	}
+}
 
 ///////////////////////////////////////////////////////////////////////////
 // OP2
 ///////////////////////////////////////////////////////////////////////////
-	TR(5)
-		Time(36:1:0)
-		o6
-		v127
-		Voice(BrassSection)
-		g#4.g#8
-		>c#1^1
-
-	TR(6)
-		Time(36:1:0)
-		Voice(Harpsichord)
-		#hh6={
-			v120
-			g#4.g#8
-			Expression.onTime(127,100,!1)[40 c#24d24]
-			Expression(127)
-		}
-		Sub {
-			o4
-			#hh6
-		}
-		o7
-		#hh6
-
-
-	#orhit0={
-		v110q90
-		r2
-		l12
-		o3
-		'e-b->e-b->e-<<' rr
-		[3'e-b->e-b->e-<<'] 
-		[2 'f>cf>cf<<'rr]
-		'g>dg>dg'
-	}
-	TR(7)
-		Time(36:1:0)
-		Voice(OrchestraHit)
-		#orhit0
-
-	IF(TIMIDITY=1) {
-		TR(13)
+IF(OP2=1) {
+	IF(BACK=1) {
+		TR(5)
 			Time(36:1:0)
-			Voice(SynthBrass1)
-			#orhit0
-	}
+			o6
+			v127
+			Voice(BrassSection)
+			q98
+			g#4.g#8
+			>c#1^1
 
-	TR(11)
-		Time(36:1:0)
-		Voice(126,2,0)
-		o5
-		v127r4r4
-		r1r2
-		c2
-		Voice(126,3,0)
-		c2r8
-		Voice(126,4,0)
-		c4
-	TR(12)
-		Time(36:1:0)
-		o5
-		v110
-		Voice(126,0,0)
-		c1^1^1^2
+		TR(6)
+			Time(36:1:0)
+			Voice(Harpsichord)
+			#hh6={
+				v120
+				q98
+				g#4.g#8
+				q93
+				Expression.onTime(127,100,!1)[40 c#24d24]
+				Expression(127)
+			}
+			Sub {
+				o4
+				#hh6
+			}
+			o7
+			#hh6
+
+
+		#orhit0={
+			v110q90
+			r2
+			l12
+			o3
+			'e-b->e-b->e-<<' rr
+			[3'e-b->e-b->e-<<'] 
+			[2 'f>cf>cf<<'rr]
+			'g>dg>dg'
+		}
+		TR(7)
+			Time(36:1:0)
+			Voice(OrchestraHit)
+			#orhit0
+
+		IF(TIMIDITY=1) {
+			TR(13)
+				Time(36:1:0)
+				Voice(SynthBrass1)
+				#orhit0
+		}
+
+		TR(11)
+			Time(36:1:0)
+			Voice(126,2,0)
+			o5
+			v127r4r4
+			r1r2
+			c2
+			Voice(126,3,0)
+			c2r8
+			Voice(126,4,0)
+			c4
+		TR(12)
+			Time(36:1:0)
+			o5
+			v110
+			Voice(126,0,0)
+			c1^1^1^2
+	}
+}
 
 ///////////////////////////////////////////////////////////////////////////
 // OP3
 ///////////////////////////////////////////////////////////////////////////
 
-	TR(3)
-		Time(40:1:0)
-		Voice(Oboe)
-		v120
-		o5l8
-		g2>drdr
-		e-4.dc#rdr
-		<b->cdc<b-rgr
-		r4g#g# g#rrr
-		g2>drdr
-		e-4.dc#rdr
-		<b->cdc<b-rar
-		r4gg grrr
-
-		a2drar
-		b-2grrr>
-		e-4.dcre-r
-		d2.r4
-		c2<ar>cr<
-		b-2grrr
-		a4.db-rar
-		g4r2.
-		r1
-
-	TR(4)
-		Time(40:1:0)
-		Voice(Oboe)
-		v120
-		o5l8
-		[3 r1]
-		r4f#f#f#rrr
-
-	TR(7)
-		Time(40:1:0)
-		Voice(Strings1)
-		o5
-		l8
-		v70
-		[3 r 'c#2.d2.' r ]
-		rr[3 'c#d'] r <dr>
-
-		[3 r 'c#2.d2.' r ]
-		rr[3 'c#d'] r <dr>
-
-		[2 r 'c#2.d2.' r ]
-		[1 r 'd2.e-2.' r ]
-		[1 r 'c#2.d2.' r ]
-		[1 r 'd2.e-2.' r ]
-		[2 r 'c#2.d2.' r ]
-		'f#g'rrr <grrr
-
-	#orhit1={
-		o3
-		v127
-		[15 r1]
-		r2 'g2>g2'
-
-		Voice(127,5,0)
-		Expression.onTime(100,50,!1)[7 c8c8r4 ]
-		Expression(127)
-	}
-
-	TR(8)
-		Time(40:1:0)
-		Voice(OrchestraHit)
-		v127
-		#orhit1
-
-	IF(TIMIDITY=1) {
-		TR(13)
+IF(OP3=1) {
+	IF(BACK=1) {
+		TR(3)
 			Time(40:1:0)
-			Voice(SynthBrass1)
+			Voice(Oboe)
+			v120
+			o5l8
+			g2>drdr
+			e-4.dc#rdr
+			<b->cdc<b-rgr
+			r4g#g# g#rrr
+			g2>drdr
+			e-4.dc#rdr
+			<b->cdc<b-rar
+			r4gg grrr
+
+			a2drar
+			b-2grrr>
+			e-4.dcre-r
+			d2.r4
+			c2<ar>cr<
+			b-2grrr
+			a4.db-rar
+			g4r2.
+			r1
+
+		TR(4)
+			Time(40:1:0)
+			Voice(Oboe)
+			v120
+			o5l8
+			[3 r1]
+			r4f#f#f#rrr
+
+		TR(7)
+			Time(40:1:0)
+			Voice(Strings1)
+			o5
+			l8
+			v70
+			[3 r 'c#2.d2.' r ]
+			rr[3 'c#d'] r <dr>
+
+			[3 r 'c#2.d2.' r ]
+			rr[3 'c#d'] r <dr>
+
+			[2 r 'c#2.d2.' r ]
+			[1 r 'd2.e-2.' r ]
+			[1 r 'c#2.d2.' r ]
+			[1 r 'd2.e-2.' r ]
+			[2 r 'c#2.d2.' r ]
+			'f#g'rrr <grrr
+
+		#orhit1={
+			o3
+			v127
+			[15 r1]
+			r2 'g2>g2'
+
+			// Walk
+			Voice(127,5,0)
+			v80
+			[7 c8c8r4 v--]
+		}
+
+		TR(8)
+			Time(40:1:0)
+			Voice(OrchestraHit)
 			v127
 			#orhit1
-	}
 
-	TR(9)
-		Time(40:1:0)
-		Voice(Timpani)
-		v115
-		o3
-		l8
-		[3 g4.>d4.<d4]
-		rrdd d2
-		[2 g4.>d4.<d4]
-		a4.>d4.<d4
-		rrgg g2
-		[1 a4.>d4.<d4]
-		[1 g4.>d4.<d4]
-		[1 g4.>e-4.<d4]
-		[1 g4.>d4.<d4]
-		[1 a4.>e-4.<d4]
-		[1 g4.>d4.<d4]
-		[1 a4.>d4.<d4]
-		g1
-
-
-	TR(10)
-		Time(40:1:0)
-		IF(TIMIDITY=0) {
-			Voice(OrchestraSet)
-			$c{n(59),}
-			$y{n(59),}
-		} ELSE {
-			Voice(StandardSet2)
-			$c{n(CrashCymbal1),}
-			$y{n(CrashCymbal2),}
+		IF(TIMIDITY=1) {
+			TR(13)
+				Time(40:1:0)
+				Voice(SynthBrass1)
+				v127
+				#orhit1
+			TR(14)
+				Time(40:1:0)
+				Voice(64)
+				v127
+				#orhit1
 		}
-		$C{n(Castanets),}
-		$S{n(VibraSlap),}
-		[2
+
+		TR(9)
+			Time(40:1:0)
+			Voice(Timpani)
+			v115
+			o3
+			l8
+			[3 g4.>d4.<d4]
+			rrdd d2
+			[2 g4.>d4.<d4]
+			a4.>d4.<d4
+			rrgg g2
+			[1 a4.>d4.<d4]
+			[1 g4.>d4.<d4]
+			[1 g4.>e-4.<d4]
+			[1 g4.>d4.<d4]
+			[1 a4.>e-4.<d4]
+			[1 g4.>d4.<d4]
+			[1 a4.>d4.<d4]
+			g1
+
+
+		TR(10)
+			Time(40:1:0)
+			IF(TIMIDITY=0) {
+				Voice(OrchestraSet)
+				$c{RandR(999,1728) RandV(120,127) n(59),}
+				$y{RandR(999,1728) RandV(120,127) n(59),}
+			} ELSE {
+				Voice(StandardSet2)
+				$c{RandR(999,1728) RandV(120,127) n(CrashCymbal1),}
+				$y{RandR(999,1728) RandV(120,127) n(CrashCymbal2),}
+			}
+			$C{RandR(999,1728) RandV(120,127) n(Castanets),}
+			$S{RandR(999,1728) RandV(120,127) n(VibraSlap),}
+			[2
+				Sub {
+					Rythm {
+						[3 r8S8r2.]
+					}
+				}
+				Rythm {
+					C4.C4.C4
+					r4C4C2
+					C4.C4.C4
+				}
+				Rythm {
+					r2.c4
+				}
+			]
+
 			Sub {
 				Rythm {
-					[3 r8S8r2.]
+					[7 r8S8r2.]
 				}
 			}
 			Rythm {
-				C4.C4.C4
-				r4C4C2
+				[3
+					C4.C4.C4
+					r4C4C2
+				]
 				C4.C4.C4
 			}
 			Rythm {
-				r2.c4
+				C2c4
 			}
-		]
-
-		Sub {
-			Rythm {
-				[7 r8S8r2.]
-			}
-		}
-		Rythm {
-			[3
-				C4.C4.C4
-				r4C4C2
-			]
-			C4.C4.C4
-		}
-		Rythm {
-			C2c4
-		}
+	}
 }
+
 ///////////////////////////////////////////////////////////////////////////
 // Theme Song
 ///////////////////////////////////////////////////////////////////////////
 
-IF(VOCALOID=1) {
-	TR(1)
-		Time(60:1:0)
-		[9 r1]
-		Voice(AltoSax)
-		o5q97
-		l8v127
-		r2c#dee&
-		IF(BACK=1) {
-			e4.r c#dee&
-		} ELSE {
-			e4.r c#dee16.r32
-		}
-		e4f#d2r
-		c#4d<b2r
-		r2a4b4>
-		c#4<b4>c#4d4
-		c#4d<b&b2&
-		b2.r4>
+IF(THEME=1) {
+	IF(VOCALOID=1) {
+		TR(1)
+			Time(60:1:0)
+			[9 r1]
+			Voice(AltoSax)
+			o5q97
+			l8v127
+			r2c#dee&
+			IF(BACK=1) {
+				e4.r c#dee&
+			} ELSE {
+				e4.r c#dee16.r32
+			}
+			e4f#d2r
+			c#4d<b2r
+			r2a4b4>
+			c#4<b4>c#4d4
+			c#4d<b&b2&
+			b2.r4>
 
-		r2c#dee&
-		IF(BACK=1) {
-			e4.r c#dee&
-		} ELSE {
-			e4.r c#dee
-		}
-		e4f#d2r
-		c#4d<b2r
-		r4a4>c#4f#4
-		a4b4>c#4d4
-		c#4d<b&b2&
-		b2r>c#<ba&
-		a4.rrf#g#a
-		>d4dc#4<aba&
-		a1&
-		a4r4
+			r2c#dee&
+			IF(BACK=1) {
+				e4.r c#dee&
+			} ELSE {
+				e4.r c#dee
+			}
+			e4f#d2r
+			c#4d<b2r
+			r4a4>c#4f#4
+			a4b4>c#4d4
+			c#4d<b&b2&
+			b2r>c#<ba&
+			a4.rrf#g#a
+			>d4dc#4<aba&
+			a1&
+			a4r4
 
-		//---
-		rag#f#&
-		IF(BACK=1) {
-			f#2r4g#4
-		} ELSE {
-			f#2^8rg#4
-		}
-		a4a4g#f#4e&
-		e1
-
-		r2rc#de
-		IF(BACK=1) {
-			d2&dc#da&
-			a4a4<ab4>c#&
-		} ELSE {
-			d2^8c#da&
-			ara4<ab4>c#&
-		}
-		c#2d2
-		e2 rag#f#&
-		f#2r4g#4
-		IF(BACK=1) {
+			//---
+			rag#f#&
+			IF(BACK=1) {
+				f#2r4g#4
+			} ELSE {
+				f#2^8rg#4
+			}
 			a4a4g#f#4e&
-		} ELSE {
-			ara4g#f#4e&
-		}
-		e1
-		r2rab>c#<
-		b2r4b4
-		a4a4g#a4b&
-		b1
+			e1
 
-		#m2_1={
-			r2 r>c#de
-			r1
-			f#4ed4c#de
-			r1
+			r2rc#de
 			IF(BACK=1) {
-				f#4ed4c#de
+				d2&dc#da&
+				a4a4<ab4>c#&
 			} ELSE {
-				f#4ed&dc#de
+				d2^8c#da&
+				ara4<ab4>c#&
 			}
-			r1
-			f#4g4f#4c#4
+			c#2d2
+			e2 rag#f#&
+			f#2r4g#4
 			IF(BACK=1) {
-				e4.d&d2&
+				a4a4g#f#4e&
 			} ELSE {
-				e4ed&d2&
+				ara4g#f#4e&
 			}
-			d2 <rb>c#d&
-			d2r4d4
-			f4f4ed4c#&
-			c#1
-			r2.c#4<
-			b4r2b4
+			e1
+			r2rab>c#<
+			b2r4b4
 			a4a4g#a4b&
 			b1
 
-			r2 r>c#de
-			r1
-			f#4ed4c#de
-			r1
-			f#4ed4c#de
-			r1
-			f#4g4f#4c#4
-			IF(BACK=1) {
-				e4.d&d2&
-			} ELSE {
-				e4ed&d2&
-			}
-			d2 <rb>c#d&
-			d2.d4
-			f4f4ed4c#&
-			c#1
-			r2.c#4<
-			IF(BACK=1) {
-				b4r2>c#4
-			} ELSE {
-				b2.>c#4
-			}
-			d4d4c#<b4a&
-			a1
-			r1
-		}
-		#n2_1={
-			r2 r>ab>c#
-			r1
-			d4c#<b4ab>c#
-			r1
-			IF(BACK=1) {
-				d4c#<b4ag#g
-			} ELSE {
-				d4c#<b&bag#g
-			}
-			r1
-			f#4f#4g#4a#4
-			IF(BACK=1) {
-				b4.b&b2&
-			} ELSE {
-				b4bb&b2&
-			}
-			b2 rdef&
-			f2r4f4
-			a4a4gf4e&
-			e1
-			r2.e4
-			d#4r2d#4
-			<b4b4>c#d#4e&
-			e1<
-
-			r2 r>c#de
-			r1
-			f#4ed4c#de
-			r1
-			f#4ed4c#de
-			r1
-			f#4g4f#4c#4
-			IF(BACK=1) {
-				e4.d&d2&
-			} ELSE {
-				e4ed&d2&
-			}
-			d2 <rb>c#d&
-			d2.d4
-			f4f4ed4c#&
-			c#1
-			r2.c#4<
-			IF(BACK=1) {
-				b4r2>c#4
-			} ELSE {
-				b2.>c#4
-			}
-			d4d4c#<b4a&
-			a1
-			r1
-		}
-		#m2_2={
-			r2 r>c#de
-			r1
-			f#4ed4c#de
-			r1
-			IF(BACK=1) {
+			#m2_1={
+				r2 r>c#de
+				r1
 				f#4ed4c#de
-			} ELSE {
-				f#red4c#de
-			}
-			r1
-			f#4g4f#4c#4
-			IF(BACK=1) {
-				e4.d&d2&
-			} ELSE {
-				e4ed&d2&
-			}
-			d2 <rb>c#d&
-			d2r4d4
-			f4f4ed4c#&
-			c#1
-			r2.c#4<
-			b4r2b4
-			a4a4g#a4b&
-			b1
-
-			r2 r>c#de
-			r1
-			f#4ed4c#de
-			r1
-			f#4ed4c#de
-			r1
-			f#4g4f#4c#4
-			IF(BACK=1) {
-				e4.d&d2&
-			} ELSE {
-				e4ed&d2&
-			}
-			d2 <rb>c#d&
-			d2.d4
-			IF(BACK=1) {
+				r1
+				IF(BACK=1) {
+					f#4ed4c#de
+				} ELSE {
+					f#4ed&dc#de
+				}
+				r1
+				f#4g4f#4c#4
+				IF(BACK=1) {
+					e4.d&d2&
+				} ELSE {
+					e4ed&d2&
+				}
+				d2 <rb>c#d&
+				d2r4d4
 				f4f4ed4c#&
-			} ELSE {
-				f4fred4c#&
-			}
-			c#1
-			r2.c#4<
-			b4r2>c#4
-			d4d4c#<b4a&
-			a1
-			r1
-		}
-		#n2_2={
-			r2 r>ab>c#
-			r1
-			d4c#<b4ab>c#
-			r1
-			IF(BACK=1) {
-				d4c#<b4ag#g
-			} ELSE {
-				drc#<b4ag#g
-			}	
-			r1
-			f#4f#4g#4a#4
-			IF(BACK=1) {
-				b4.b&b2&
-			} ELSE {
-				b4bb&b2&
-			}
-			b2 rdef&
-			f2r4f4
-			a4a4gf4e&
-			e1
-			r2.e4
-			d#4r2d#4<
-			b4b4>c#d#4e&
-			e1
+				c#1
+				r2.c#4<
+				b4r2b4
+				a4a4g#a4b&
+				b1
 
-			r2 rc#de
-			r1
-			f#4ed4c#de
-			r1
-			f#4ed4c#de
-			r1
-			f#4g4f#4c#4
-			IF(BACK=1) {
-				e4.d&d2&
-			} ELSE {
-				e4ed&d2&
-			}
-			d2 <rb>c#d&
-			d2.d4
-			IF(BACK=1) {
+				r2 r>c#de
+				r1
+				f#4ed4c#de
+				r1
+				f#4ed4c#de
+				r1
+				f#4g4f#4c#4
+				IF(BACK=1) {
+					e4.d&d2&
+				} ELSE {
+					e4ed&d2&
+				}
+				d2 <rb>c#d&
+				d2.d4
 				f4f4ed4c#&
-			} ELSE {
-				f4fred4c#&
+				c#1
+				r2.c#4<
+				IF(BACK=1) {
+					b4r2>c#4
+				} ELSE {
+					b2.>c#4
+				}
+				d4d4c#<b4a&
+				a1
+				r1
 			}
-			c#1
-			r2.c#4<
-			b4r2>c#4
-			d4d4c#<b4a&
-			a1
-			r1
-		}
+			#n2_1={
+				r2 r>ab>c#
+				r1
+				d4c#<b4ab>c#
+				r1
+				IF(BACK=1) {
+					d4c#<b4ag#g
+				} ELSE {
+					d4c#<b&bag#g
+				}
+				r1
+				f#4f#4g#4a#4
+				IF(BACK=1) {
+					b4.b&b2&
+				} ELSE {
+					b4bb&b2&
+				}
+				b2 rdef&
+				f2r4f4
+				a4a4gf4e&
+				e1
+				r2.e4
+				d#4r2d#4
+				<b4b4>c#d#4e&
+				e1<
 
-		#m2_1
-		[15 r1]
-		o5
-		#m2_2
-	TR(2)
-		Time(60:1:0)
-		[9 r1]
-		Voice(AltoSax)
-		o5q97
-		l8v127
-		[19 r1]
-		r2
-		rf#ed&
-		IF(BACK=1) {
-			d2r4e4
-		} ELSE {
-			d2^8re4
-		}
-		f#4f#4ed4c#&
-		c#1
-		r2r<ab>c#
-		<b1>
-		e4e4<f#g#4a&
-		a2b2>
-		c#2 rf#ed&
-		d2r4e4
-		IF(BACK=1) {
+				r2 r>c#de
+				r1
+				f#4ed4c#de
+				r1
+				f#4ed4c#de
+				r1
+				f#4g4f#4c#4
+				IF(BACK=1) {
+					e4.d&d2&
+				} ELSE {
+					e4ed&d2&
+				}
+				d2 <rb>c#d&
+				d2.d4
+				f4f4ed4c#&
+				c#1
+				r2.c#4<
+				IF(BACK=1) {
+					b4r2>c#4
+				} ELSE {
+					b2.>c#4
+				}
+				d4d4c#<b4a&
+				a1
+				r1
+			}
+			#m2_2={
+				r2 r>c#de
+				r1
+				f#4ed4c#de
+				r1
+				IF(BACK=1) {
+					f#4ed4c#de
+				} ELSE {
+					f#red4c#de
+				}
+				r1
+				f#4g4f#4c#4
+				IF(BACK=1) {
+					e4.d&d2&
+				} ELSE {
+					e4ed&d2&
+				}
+				d2 <rb>c#d&
+				d2r4d4
+				f4f4ed4c#&
+				c#1
+				r2.c#4<
+				b4r2b4
+				a4a4g#a4b&
+				b1
+
+				r2 r>c#de
+				r1
+				f#4ed4c#de
+				r1
+				f#4ed4c#de
+				r1
+				f#4g4f#4c#4
+				IF(BACK=1) {
+					e4.d&d2&
+				} ELSE {
+					e4ed&d2&
+				}
+				d2 <rb>c#d&
+				d2.d4
+				IF(BACK=1) {
+					f4f4ed4c#&
+				} ELSE {
+					f4fred4c#&
+				}
+				c#1
+				r2.c#4<
+				b4r2>c#4
+				d4d4c#<b4a&
+				a1
+				r1
+			}
+			#n2_2={
+				r2 r>ab>c#
+				r1
+				d4c#<b4ab>c#
+				r1
+				IF(BACK=1) {
+					d4c#<b4ag#g
+				} ELSE {
+					drc#<b4ag#g
+				}	
+				r1
+				f#4f#4g#4a#4
+				IF(BACK=1) {
+					b4.b&b2&
+				} ELSE {
+					b4bb&b2&
+				}
+				b2 rdef&
+				f2r4f4
+				a4a4gf4e&
+				e1
+				r2.e4
+				d#4r2d#4<
+				b4b4>c#d#4e&
+				e1
+
+				r2 rc#de
+				r1
+				f#4ed4c#de
+				r1
+				f#4ed4c#de
+				r1
+				f#4g4f#4c#4
+				IF(BACK=1) {
+					e4.d&d2&
+				} ELSE {
+					e4ed&d2&
+				}
+				d2 <rb>c#d&
+				d2.d4
+				IF(BACK=1) {
+					f4f4ed4c#&
+				} ELSE {
+					f4fred4c#&
+				}
+				c#1
+				r2.c#4<
+				b4r2>c#4
+				d4d4c#<b4a&
+				a1
+				r1
+			}
+
+			#m2_1
+			[15 r1]
+			o5
+			#m2_2
+		TR(2)
+			Time(60:1:0)
+			[9 r1]
+			Voice(AltoSax)
+			o5q97
+			l8v127
+			[19 r1]
+			r2
+			rf#ed&
+			IF(BACK=1) {
+				d2r4e4
+			} ELSE {
+				d2^8re4
+			}
 			f#4f#4ed4c#&
-		} ELSE {
-			f#rf#4ed4c#&
-		}
-		c#1
-		r2raag#
-		f#2r4f#4
-		d#4d#4<b>c#d#e&
-		e1
+			c#1
+			r2r<ab>c#
+			<b1>
+			e4e4<f#g#4a&
+			a2b2>
+			c#2 rf#ed&
+			d2r4e4
+			IF(BACK=1) {
+				f#4f#4ed4c#&
+			} ELSE {
+				f#rf#4ed4c#&
+			}
+			c#1
+			r2raag#
+			f#2r4f#4
+			d#4d#4<b>c#d#e&
+			e1
 
-		o4
-		#n2_1
-		[15 r1]
-		o4
-		#n2_2
-}
-IF(BACK=1) {
-	TR(5)
-		Time(60:1:0)
-		l16
-		Voice(BrassSection)
-		v127
-		Expression(127)
-		o5q95
-		#br1={
-			l16
-			dc#<b>c# def#g# ag#f#g# ab>c#d
-			l8
-			e2.r4
-			f#erdrc#de&
-			e2.r4
-			f#erdrc#de
-			d2 &dc#da&
-			a2 &a<ab>c#
-			d4r4e4r4
-			f4r4g4r8a8
-		}
-		Sub {
 			o4
+			#n2_1
+			[15 r1]
+			o4
+			#n2_2
+	}
+	IF(BACK=1) {
+		TR(5)
+			Time(60:1:0)
+			l16
+			Voice(BrassSection)
+			v127
+			Expression(127)
+			o5q95
+			#br1={
+				l16
+				dc#<b>c# def#g# ag#f#g# ab>c#d
+				l8
+				e2.r4
+				f#erdrc#de&
+				e2.r4
+				f#erdrc#de
+				d2 &dc#da&
+				a2 &a<ab>c#
+				d4r4e4r4
+				f4r4g4r8a8
+			}
+			Sub {
+				o4
+				#br1
+			}
+			o5
 			#br1
-		}
-		o5
-		#br1
 
-	TR(6)
-		Time(60:1:0)
-		v100
-		Expression(127)
-		r1l1
-		o4q100
-		Voice(Strings1)
-		'a^>c#^e^<'
-		'g#^>c#^e^<'
-		'f#^a>^d^<'
-		l4
-		'fa>d<' r 'gb>e<'r
-		'a>cf<' r 'b>dg<' r8 '>c#8e8a8'<
+		TR(6)
+			Time(60:1:0)
+			v100
+			Expression(127)
+			r1l1
+			o4q100
+			Voice(Strings1)
+			'a^>c#^e^<'
+			'g#^>c#^e^<'
+			'f#^a>^d^<'
+			l4
+			'fa>d<' r 'gb>e<'r
+			'a>cf<' r 'b>dg<' r8 '>c#8e8a8'<
 
-		//---
-		l1
-		[2
-			'a>c#e<'
-			'g#>c#e<'
+			//---
+			l1
+			[2
+				'a>c#e<'
+				'g#>c#e<'
+				'a>df#<'
+				'g#>c#e#<'
+				'a>c#f#<'
+				'a>d#f#<'
+				'g#^b^>e^<'
+			]
+			[2 'f#8a8>d8<'] r2.
+			'g#b>e<'
+			Sub {'a^>c#^'}
+			ef#2g2<
+
+			//--
+			'a^>d^f#^<'
+			'a^>c#^e^<'
 			'a>df#<'
+			'g#b>e<'
+			'a>c#e<'
+			'a>c#g<'
+
+			'a^>d^f#^<'
+			'a>c#e<'
+			'a>c#f#<'
+			'b^>d#^f#^<'
+			'g#^b^>e^<'
+
+			//--
+			'a^>c#^e^<'
+			'g#^b^>e^<'
+			'gb>e<'
+			'a#>c#f#<'
+			'b^>d^f#^<'
+			'b>df<'
+			'g#>de<'
+			'a^>c#^e^<'
+			'b^>d#^f#^<'
+			'g#^b^>e^<'
+
+			'a^>c#^e^<'
+			'g#^b^>e^<'
+			'gb>e<'
+			'a#>c#f#<'
+			'b^>d^f#^<'
+			'b>df<'
+			'g#>de<'
+			'a^>c#^e^<'
+			'b>df#<'
+			'g#>de<'
+			Sub{'a^>c#^'}ef#2g2<
+
+			//---
+			'a^>d^f#^<'
+			'a^>c#^e^<'
+			'a>df#<'
+			'g#>de<'
+			'a>c#e<'
+			'a>c#g<'
+
+			'a^>d^f#^<'
 			'g#>c#e#<'
 			'a>c#f#<'
-			'a>d#f#<'
+			'b^>d#^f#^<'
 			'g#^b^>e^<'
-		]
-		[2 'f#8a8>d8<'] r2.
-		'g#b>e<'
-		Sub {'a^>c#^'}
-		ef#2g2<
 
-		//--
-		'a^>d^f#^<'
-		'a^>c#^e^<'
-		'a>df#<'
-		'g#b>e<'
-		'a>c#e<'
-		'a>c#g<'
+			//--
+			'a^>c#^e^<'
+			'g#^b^>e^<'
+			'gb>e<'
+			'a#>c#f#<'
+			'b^>d^f#^<'
+			'b>df<'
+			'g#>de<'
+			'a^>c#^e^<'
+			'b^>d#^f#^<'
+			'g#^b^>e^<'
 
-		'a^>d^f#^<'
-		'a>c#e<'
-		'a>c#f#<'
-		'b^>d#^f#^<'
-		'g#^b^>e^<'
+			'a^>c#^e^<'
+			'g#^b^>e^<'
+			'gb>e<'
+			'a#>c#f#<'
+			'b^>d^f#^<'
+			'b>df<'
+			'g#>de<'
+			'a^>c#^e^<'
+			'b>df#<'
+			'g#>de<'
+			'a1.>c#1.e1.'
 
-		//--
-		'a^>c#^e^<'
-		'g#^b^>e^<'
-		'gb>e<'
-		'a#>c#f#<'
-		'b^>d^f#^<'
-		'b>df<'
-		'g#>de<'
-		'a^>c#^e^<'
-		'b^>d#^f#^<'
-		'g#^b^>e^<'
+		TR(7)
+			Time(60:1:0)
+			Voice(PizzicatoStrings)
+			o5q97
+			l8v127
+			[9 r1]
+			[20 r1]
+			l8
+			[2 r'df#' 'f#a' 'a>d<' r2]
+			[2 r'c#e' 'ea' 'a>c#<' r2]
+			[1 r'df#' 'f#a' 'a>d<' r2]
+			[1 r'de' 'eg#' 'g#>d<' r2]
+			[2 r'c#e' 'ea' 'a>c#<' r2]
 
-		'a^>c#^e^<'
-		'g#^b^>e^<'
-		'gb>e<'
-		'a#>c#f#<'
-		'b^>d^f#^<'
-		'b>df<'
-		'g#>de<'
-		'a^>c#^e^<'
-		'b>df#<'
-		'g#>de<'
-		Sub{'a^>c#^'}ef#2g2<
+			[2 r'df#' 'f#a' 'a>d<' r2]
+			[1 r'c#e' 'ea' 'a>c#<' r2]
+			[1 r'c#f#' 'f#a' 'a>c#<' r2]
+			[2 r'd#f#' 'f#a' 'a>d#<' r2]
+			[1 r'de' 'eg#' 'g#b<' r2]
+			r1
 
-		//---
-		'a^>d^f#^<'
-		'a^>c#^e^<'
-		'a>df#<'
-		'g#>de<'
-		'a>c#e<'
-		'a>c#g<'
+			[32 r1]
+			o5
+			[2 r'df#' 'f#a' 'a>d<' r2]
+			[2 r'c#e' 'ea' 'a>c#<' r2]
+			[1 r'df#' 'f#a' 'a>d<' r2]
+			[1 r'de' 'eg#' 'g#>d<' r2]
+			[2 r'c#e' 'ea' 'a>c#<' r2]
+			[2 r'df#' 'f#a' 'a>d<' r2]
+			[1 r'c#e#' 'e#g#' 'g#>c#<' r2]
+			[1 r'c#f#' 'f#a' 'a>c#<' r2]
+			[2 r'd#f#' 'f#a' 'a>d#<' r2]
+			[1 r'de' 'eg#' 'g#b<' r2]
+			r1
 
-		'a^>d^f#^<'
-		'g#>c#e#<'
-		'a>c#f#<'
-		'b^>d#^f#^<'
-		'g#^b^>e^<'
+		TR(14)
+			Time(137:1:0)
+			Voice(OverdrivenGuitar)	
+			o5l8q100
+			v127
+			'f#2^8a2^8''df#''df#''f#a'
+			'f#2^8>d2^8<''f#>d<''g#>e<''f#>d<'
+			'f#4.>d4.<''e^1>c#^1<'
+			r'ea''eb''e>c#<'
+			'f#2.>d2.<''f#4>d4<'
+			'a4>f4<''a4>f4<''g4>e4<''f4>d4<'
+			'e1.>e1.<'
+			r'c#a''da''eg#'
+			'd2^f#2^''<a>d''df#''f#a'
+			'a1>d1<'
+			'g#2^>c#2^<''>c#e#''e#g#''g#b'
+			'f#2^a2^'f#g#a
+			b8 l16>c#<a f#>c#<af# >c#<af#>c#< af#>c#<a
+			f#>c#<af# >c#<af#>c#< af#>c#<a f#>c#<af#
+			'e8b8' l16 >e<b g#>e<bg# >e<bg#>e <bg#>e<b
+			g#e<bg# >e<bg#e <b>g#ed< bg#ed
 
-		//--
-		'a^>c#^e^<'
-		'g#^b^>e^<'
-		'gb>e<'
-		'a#>c#f#<'
-		'b^>d^f#^<'
-		'b>df<'
-		'g#>de<'
-		'a^>c#^e^<'
-		'b^>d#^f#^<'
-		'g#^b^>e^<'
+		#orhit2={
+			v127
+			Expression(127)
+			[7 r1]
 
-		'a^>c#^e^<'
-		'g#^b^>e^<'
-		'gb>e<'
-		'a#>c#f#<'
-		'b^>d^f#^<'
-		'b>df<'
-		'g#>de<'
-		'a^>c#^e^<'
-		'b>df#<'
-		'g#>de<'
-		'a1.>c#1.e1.'
-
-	TR(7)
-		Time(60:1:0)
-		Voice(PizzicatoStrings)
-		o5q97
-		l8v127
-		[9 r1]
-		[20 r1]
-		l8
-		[2 r'df#' 'f#a' 'a>d<' r2]
-		[2 r'c#e' 'ea' 'a>c#<' r2]
-		[1 r'df#' 'f#a' 'a>d<' r2]
-		[1 r'de' 'eg#' 'g#>d<' r2]
-		[2 r'c#e' 'ea' 'a>c#<' r2]
-
-		[2 r'df#' 'f#a' 'a>d<' r2]
-		[1 r'c#e' 'ea' 'a>c#<' r2]
-		[1 r'c#f#' 'f#a' 'a>c#<' r2]
-		[2 r'd#f#' 'f#a' 'a>d#<' r2]
-		[1 r'de' 'eg#' 'g#b<' r2]
-		r1
-
-		[32 r1]
-		o5
-		[2 r'df#' 'f#a' 'a>d<' r2]
-		[2 r'c#e' 'ea' 'a>c#<' r2]
-		[1 r'df#' 'f#a' 'a>d<' r2]
-		[1 r'de' 'eg#' 'g#>d<' r2]
-		[2 r'c#e' 'ea' 'a>c#<' r2]
-		[2 r'df#' 'f#a' 'a>d<' r2]
-		[1 r'c#e#' 'e#g#' 'g#>c#<' r2]
-		[1 r'c#f#' 'f#a' 'a>c#<' r2]
-		[2 r'd#f#' 'f#a' 'a>d#<' r2]
-		[1 r'de' 'eg#' 'g#b<' r2]
-		r1
-
-	TR(14)
-		Time(137:1:0)
-		Voice(OverdrivenGuitar)	
-		o5l8q100
-		v127
-		'f#2^8a2^8''df#''df#''f#a'
-		'f#2^8>d2^8<''f#>d<''g#>e<''f#>d<'
-		'f#4.>d4.<''e^1>c#^1<'
-		r'ea''eb''e>c#<'
-		'f#2.>d2.<''f#4>d4<'
-		'a4>f4<''a4>f4<''g4>e4<''f4>d4<'
-		'e1.>e1.<'
-		r'c#a''da''eg#'
-		'd2^f#2^''<a>d''df#''f#a'
-		'a1>d1<'
-		'g#2^>c#2^<''>c#e#''e#g#''g#b'
-		'f#2^a2^'f#g#a
-		b8 l16>c#<a f#>c#<af# >c#<af#>c#< af#>c#<a
-		f#>c#<af# >c#<af#>c#< af#>c#<a f#>c#<af#
-		'e8b8' l16 >e<b g#>e<bg# >e<bg#>e <bg#>e<b
-		g#e<bg# >e<bg#e <b>g#ed< bg#ed
-
-	#orhit2={
-		v127
-		Expression(127)
-		[7 r1]
-
-		Sub {
-			o4
+			Sub {
+				o4
+				d4r4e4r4
+				f4r4g4r8a8
+			}
+			o5
 			d4r4e4r4
 			f4r4g4r8a8
-		}
-		o5
-		d4r4e4r4
-		f4r4g4r8a8
-		[36 r1]
+			[36 r1]
 
-		#oa1={
-			l4
-			rar2
-			r1
-			rg#r2
-			r1
-			rgr2
-			rf#g#a#
-			rbr2
-			r1
-			rb4r2
-			ref#g#
-			rar2
-			r1
-			rbr2
-			rbr2
-			rbr2
-			r>e4r8e8e8e8<
-			rar2
-			r1
-			rg#r2
-			r1
-			rgr2
-			rf#g#a#
-			rbr2
-			r1
-			rb4r2
-			ref#g#
-			rar2
-			r1
-			rbr2
-			rer2
-		}
+			#oa1={
+				l4
+				rar2
+				r1
+				rg#r2
+				r1
+				rgr2
+				rf#g#a#
+				rbr2
+				r1
+				rb4r2
+				ref#g#
+				rar2
+				r1
+				rbr2
+				rbr2
+				rbr2
+				r>e4r8e8e8e8<
+				rar2
+				r1
+				rg#r2
+				r1
+				rgr2
+				rf#g#a#
+				rbr2
+				r1
+				rb4r2
+				ref#g#
+				rar2
+				r1
+				rbr2
+				rer2
+			}
 
-		Sub {
-			o4
+			Sub {
+				o4
+				#oa1
+				rar2
+				r4a4l8raaa
+			}
+			o5
 			#oa1
 			rar2
 			r4a4l8raaa
-		}
-		o5
-		#oa1
-		rar2
-		r4a4l8raaa
 
-		[16 r1]
-		Sub {
-			o4
+			[16 r1]
+			Sub {
+				o4
+				#oa1
+			}
+			o5
 			#oa1
 		}
-		o5
-		#oa1
-	}
 
-	TR(8)
-		Time(60:1:0)
-		Voice(OrchestraHit)
-		v127
-		#orhit2
+		TR(8)
+			Time(60:1:0)
+			Voice(OrchestraHit)
+			v127
+			#orhit2
 
-	TR(13)
-		Time(60:1:0)
-		Voice(SynthBrass1)
-		#orhit2
+		TR(13)
+			Time(60:1:0)
+			Voice(SynthBrass1)
+			#orhit2
 
-	#ba1={
-		l4
-		[8 a]
-		[8 g#]
-		[8 f#]
-		d4r4e4r4
-		f4r4g4r8a8
-	}
-
-	#ba2={
-		l4
-		[4 a]
-		[4 g#]
-		[4 f#]
-		[4 e#]
-		[4 f#]
-		[4 d#]
-		[8 e]
-	}
-
-	#ba3={
-		l4
-		d8d8 r2.
-		[4 e]
-		[8 a]
-	}
-
-	#ba4={
-		l8
-		[2 dd r2.]
-		[2 aa r2.]
-		[1 dd r2.]
-		[1 ee r2.]
-		[4 aa r4 ]
-		[2 dd r2.]
-		[1 aa r2.]
-		[1 f#f# r2.]
-		[2 bb r2.]
-		[2 ee r4 ]
-		reeeeeee
-	}
-
-	#ba6={
-		l8
-		[2 dd r2.]
-		[2 aa r2.]
-		[1 dd r2.]
-		[1 ee r2.]
-		[4 aa r4 ]
-		[2 dd r2.]
-		[1 c#c# r2.]
-		[1 f#f# r2.]
-		[2 bb r2.]
-		[2 ee r4 ]
-		reeeeeee
-	}
-
-	#ba5={
-		l4
-		[8 a]
-		[8 g#]
-		[4 g]
-		[2 f#]g#a#
-		[8 b]
-		[4 b]
-		[2 e]f#g#
-		[8 a]
-		[8 b]
-		[4 e]
-		l8 reee eeee
-		l4
-		[8 a]
-		[8 g#]
-		[4 g]
-		[2 f#]g#a#
-		[8 b]
-		[4 b]
-		[2 e]f#g#
-		[8 a]
-		[4 b]
-		[4 e]
-	}
-
-	TR(9)
-		Time(60:1:0)
-		Voice(PickBass)
-		v100
-		Expression(127)
-		o3q100e1
-		l4q50
-
-		Sub {
-			o3
-			#ba1
-			#ba2 #ba2
-			#ba3
-			#ba4
-			#ba5
-			[4 a]
-			l8raaaaaaa
-			#ba6
-			#ba5
-			a.
+		#ba1={
+			l4
+			[8 a]
+			[8 g#]
+			[8 f#]
+			d4r4e4r4
+			f4r4g4r8a8
 		}
-		o2
-		#ba1
-		#ba2 #ba2
-		#ba3
-		#ba4
-		#ba5
-		[4 a]
-		l8raaaaaaa
-		#ba6
-		#ba5
-		a1.
 
-	TR(11)
-		Time(60:1:0)
-		Voice(FingerBass)
-		v100
-		Expression(127)
-		o3q100e1
-		l4q50
-		Sub {
-			o3
+		#ba2={
+			l4
+			[4 a]
+			[4 g#]
+			[4 f#]
+			[4 e#]
+			[4 f#]
+			[4 d#]
+			[8 e]
+		}
+
+		#ba3={
+			l4
+			d8d8 r2.
+			[4 e]
+			[8 a]
+		}
+
+		#ba4={
+			l8
+			[2 dd r2.]
+			[2 aa r2.]
+			[1 dd r2.]
+			[1 ee r2.]
+			[4 aa r4 ]
+			[2 dd r2.]
+			[1 aa r2.]
+			[1 f#f# r2.]
+			[2 bb r2.]
+			[2 ee r4 ]
+			reeeeeee
+		}
+
+		#ba6={
+			l8
+			[2 dd r2.]
+			[2 aa r2.]
+			[1 dd r2.]
+			[1 ee r2.]
+			[4 aa r4 ]
+			[2 dd r2.]
+			[1 c#c# r2.]
+			[1 f#f# r2.]
+			[2 bb r2.]
+			[2 ee r4 ]
+			reeeeeee
+		}
+
+		#ba5={
+			l4
+			[8 a]
+			[8 g#]
+			[4 g]
+			[2 f#]g#a#
+			[8 b]
+			[4 b]
+			[2 e]f#g#
+			[8 a]
+			[8 b]
+			[4 e]
+			l8 reee eeee
+			l4
+			[8 a]
+			[8 g#]
+			[4 g]
+			[2 f#]g#a#
+			[8 b]
+			[4 b]
+			[2 e]f#g#
+			[8 a]
+			[4 b]
+			[4 e]
+		}
+
+		TR(9)
+			Time(60:1:0)
+			Voice(PickBass)
+			v100
+			Expression(127)
+			o3q100e1
+			l4q50
+
+			Sub {
+				o3
+				#ba1
+				#ba2 #ba2
+				#ba3
+				#ba4
+				#ba5
+				[4 a]
+				l8raaaaaaa
+				#ba6
+				#ba5
+				a.
+			}
+			o2
 			#ba1
 			#ba2 #ba2
 			#ba3
@@ -1317,174 +1523,194 @@ IF(BACK=1) {
 			#ba6
 			#ba5
 			a1.
-		}
-		o2
-		#ba1
-		#ba2 #ba2
-		#ba3
-		#ba4
-		#ba5
-		[4 a]
-		l8raaaaaaa
-		#ba6
-		#ba5
-		a1.
 
-	TR(10)
-		Time(59:4:0)
-		ResetGS
-
-	TR(10)
-		Time(60:1:0)
-		IF(TIMIDITY=1) {
-			Voice(StandardSet)
-		} ELSE {
-			Voice(PowerSet)
-		}
-		$b{n(Kick1),} //36
-		$s{n(Snare1),} //40
-		$S{n(Snare2),} //40
-		$o{n(OpenHiHat),}//46
-		$p{n(PedalHiHat),}//44
-		$h{n(ClosedHiHat),}//42
-		$T{n(HighTom1),}//50
-		$t{n(HighTom2),}//48
-		$M{n(MidTom1),}//47
-		$m{n(MidTom2),}//45
-		$L{n(LowTom1),}//43
-		$l{n(LowTom2),}//41
-		$c{n(CrashCymbal1),}//49
-		$y{n(CrashCymbal2),}//57
-		$K{n(Sticks),}//31
-		$R{n(RideCymbal1),}//51
-
-		#r0={
-			Rythm {
-				v127s16v113S16v120s16v110S16
-				v127t16v113t16v120t16v110t16
-				v127m16v113m16v120m16v110m16
-				v127l16v113l16v120l16v110l16
-				v127
+		TR(11)
+			Time(60:1:0)
+			Voice(FingerBass)
+			v100
+			Expression(127)
+			o3q100e1
+			l4q50
+			Sub {
+				o3
+				#ba1
+				#ba2 #ba2
+				#ba3
+				#ba4
+				#ba5
+				[4 a]
+				l8raaaaaaa
+				#ba6
+				#ba5
+				a1.
 			}
-		}
-		#r0
+			o2
+			#ba1
+			#ba2 #ba2
+			#ba3
+			#ba4
+			#ba5
+			[4 a]
+			l8raaaaaaa
+			#ba6
+			#ba5
+			a1.
 
-		#r1={
+		TR(10)
+			Time(59:4:0)
+			ResetGS
+
+		TR(10)
+			Time(60:1:0)
+			IF(TIMIDITY=1) {
+				Voice(StandardSet)
+			} ELSE {
+				Voice(PowerSet)
+			}
+			$b{RandR(999,1728) RandV(120,127) n(Kick1),} //36
+			$s{RandR(999,1728) RandV(120,127) n(Snare()),} //40
+			$o{RandR(999,1728) RandV(110,127) n(OpenHiHat),}//46
+			$p{RandR(999,1728) RandV(110,127) n(PedalHiHat),}//44
+			$h{RandR(999,1728) RandV(110,127) n(ClosedHiHat),}//42
+			$T{RandR(999,1728) RandV(110,127) n(Tom(0)),}//50
+			$t{RandR(999,1728) RandV(110,127) n(Tom(0)),}//48
+			$M{RandR(999,1728) RandV(110,127) n(Tom(1)),}//47
+			$m{RandR(999,1728) RandV(110,127) n(Tom(1)),}//45
+			$L{RandR(999,1728) RandV(110,127) n(Tom(2)),}//43
+			$l{RandR(999,1728) RandV(110,127) n(Tom(2)),}//41
+			$c{RandR(999,1728) RandV(115,127) n(Cymbal()),}//49
+			$y{RandR(999,1728) RandV(115,127) n(CrashCymbal2),}//57
+			$K{RandR(999,1728) RandV(120,127) n(Sticks),}//31
+			$R{RandR(999,1728) RandV(105,127) n(RideCymbal1),}//51
+
+			#r0={
+				Rythm {
+					v127s16v113s16v120s16v110s16
+					v127t16v113t16v120t16v110t16
+					v127m16v113m16v120m16v110m16
+					v127l16v113l16v120l16v110l16
+					v127
+				}
+			}
+			#r0
+
+			#r1={
+				Sub {
+					Rythm {
+						o4o4o4o4
+					}
+				}
+				Rythm {
+					b4s4b8b8s4
+				}
+			}
+			[6 #r1]
+
 			Sub {
 				Rythm {
-					o4o4o4o4
+					c2c2c2c4.c8
 				}
 			}
 			Rythm {
-				b4s4b8b8s4
+				[4 b4 v127s16v113s16v120s16v110s16 v127]
 			}
-		}
-		[6 #r1]
 
-		Sub {
+			//----
+			[8 #r1]
+			Sub { Rythm { c1 } }
+			[8 #r1]
+
+			Rythm { 'b8h8'b8p4p4p4 }
+			[2 #r1]
 			Rythm {
-				c2y2c2y4.c8
+				'b8s8o8't8t8m8m8l8l8l8
 			}
-		}
-		Rythm {
-			[4 b4 v127s16v113S16v120s16v110S16 v127]
-		}
 
-		//----
-		[8 #r1]
-		Sub { Rythm { y1 } }
-		[8 #r1]
+			#r3={
+				Sub {
+					Rythm {
+						o8o8p4p4p4
+					}
+				}
+				Rythm {
+					b8b8^2s4
+				}
+			}
+			#r4={
+				Sub {
+					Rythm {
+						o8o8h4o8o8h4
+					}
+				}
+				Rythm {
+					b8b8^2s4
+				}
+			}
 
-		Rythm { 'b8h8'b8p4p4p4 }
-		[2 #r1]
-		Rythm {
-			'b8s8o8't8t8m8m8M8M8l8
-		}
+			Sub { Rythm {c1}}
+			[6 #r3]
+			[2 #r4]
+			Sub { Rythm {c1}}
+			[6 #r3]
+			[1 #r4]
 
-		#r3={
+			#rb2={
+				Sub {
+					#r0
+				}
+				Rythm {
+					b4b4b4b4
+				}
+			}
+			#rb2
+			//----
+			Sub { Rythm {c1}}
+			[15 #r1]
+			#rb2
+			Sub { Rythm {c1}}
+			[15 #r1]
 			Sub {
 				Rythm {
-					o8o8p4p4p4
+					c2c2c2
 				}
 			}
 			Rythm {
-				b8b8^2s4
+				'b8s8o8't8'o8t8'm8'o8m8'l8'o8l8'	l8
 			}
-		}
-		#r4={
+
+			//---
+			Sub { Rythm {c1}}
+			[6 #r3]
+			[2 #r4]
+			Sub { Rythm {c1}}
+			[2 #r3]
+			Sub { Rythm {c1}}
+			[2 #r3]
+			Sub { Rythm {c1}}
+			[2 #r3]
+			Sub { Rythm {c1}}
+			[1 #r4]
+			Sub { Rythm {c2c2}}
+			#rb2
+
+			//---
+
+			Sub { Rythm {c1}}
+			[15 #r1]
+			#rb2
+			Sub { Rythm {c1}}
+			[14 #r1]
+
 			Sub {
 				Rythm {
-					o8o8h4o8o8h4
+					R5R7R9R11R12R13R12R11R9R7R6R4
 				}
 			}
 			Rythm {
-				b8b8^2s4
+				'b1o1'
+				r2r4r24m24M24m24l4
 			}
-		}
-
-		Sub { Rythm {c1}}
-		[6 #r3]
-		[2 #r4]
-		Sub { Rythm {y1}}
-		[6 #r3]
-		[1 #r4]
-
-		#rb2={
-			Sub {
-				#r0
-			}
-			Rythm {
-				b4b4b4b4
-			}
-		}
-		#rb2
-		//----
-		Sub { Rythm {c1}}
-		[15 #r1]
-		#rb2
-		Sub { Rythm {y1}}
-		[15 #r1]
-		Sub {
-			Rythm {
-				c2y2c2
-			}
-		}
-		Rythm {
-			'b8s8o8't8'o8t8'm8'o8m8'M8'o8M8'	l8
-		}
-
-		//---
-		Sub { Rythm {c1}}
-		[6 #r3]
-		[2 #r4]
-		Sub { Rythm {y1}}
-		[2 #r3]
-		Sub { Rythm {c1}}
-		[2 #r3]
-		Sub { Rythm {y1}}
-		[2 #r3]
-		Sub { Rythm {c1}}
-		[1 #r4]
-		Sub { Rythm {y2c2}}
-		#rb2
-
-		//---
-
-		Sub { Rythm {y1}}
-		[15 #r1]
-		#rb2
-		Sub { Rythm {c1}}
-		[14 #r1]
-
-		Sub {
-			Rythm {
-				R5R7R9R11R12R13R12R11R9R7R6R4
-			}
-		}
-		Rythm {
-			'b1o1'
-			r2r4r24m24M24m24l4
-		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -1492,20 +1718,27 @@ IF(BACK=1) {
 ///////////////////////////////////////////////////////////////////////////
 
 TR(16)
-	Time(1:1:0)
-	Tempo 100
+	IF(LOGO=1) {
+		Time(1:1:0)
+		Tempo 100
+	}
 
-	Time(3:3:0)
-	Tempo 85
-
-	Time(35:3:0)
-	Tempo 250
-
-	Time(40:1:0)
-	Tempo 240
-	Time(60:1:0)
-	Tempo 150
-
+	IF(OP1=1) {
+		Time(3:3:0)
+		Tempo 85
+	}
+	IF(OP2=1) {
+		Time(35:3:0)
+		Tempo 250
+	}
+	IF(OP3=1) {
+		Time(40:1:0)
+		Tempo 240
+	}
+	IF(THEME=1) {
+		Time(60:1:0)
+		Tempo 150
+	}
 End
 ///////////////////////////////////////////////////////////////////////////
 以下、base64 + 7zip

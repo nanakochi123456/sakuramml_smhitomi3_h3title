@@ -1,8 +1,10 @@
 rem Å´à»â∫ÇÇ©Ç¶ÇƒÇ›ÇÈ
-SET TIMIDITYHOME=Y:\Timidity++
+SET TIMIDITYHOME=e:\Timidity++
+SET CSAKURAHOME=c:\Users\Ç‰Ç¡ÇΩ\Dropbox\NeetSoundProgram\csakura
+SET PERLHOME=c:\perl
 rem SET TIMIDITYHOME=c:\t\Timidity++
-SET INPUT=x:\bgm\smhitomi3_vocaloid
-SET OUTPUT=x:\bgm\smhitomi3_vocaloid
+SET INPUT=e:\cd\nano\smhitomi3_vocaloid
+SET OUTPUT=%input%
 rem Å™Ç±Ç±Ç‹Ç≈
 
 SET TIMIDITYBIN=%TIMIDITYHOME%\Timidity++
